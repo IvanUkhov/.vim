@@ -60,12 +60,13 @@ nmap <Tab> gt
 nmap <S-Tab> gT
 
 " Shortcuts
-let mapleader="`"
+let mapleader=" "
 
 map ,, :e <C-R>=expand("%:p:h") . "/" <CR><SPACE><BACKSPACE>
 cmap ,, <C-R>=expand("%:p:h") . "/" <CR><SPACE><BACKSPACE>
 map ,a :A <CR>
 nmap <C-s> :w<CR>
+nmap <leader><leader> <C-^>
 
 " Indentation
 function SwitchToTabs()
@@ -111,12 +112,19 @@ autocmd BufReadPost * call RestoreCursorPosition()
 
 " Trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
-au ColorScheme * highlight ExtraWhitespace guibg=red
-au BufEnter * match ExtraWhitespace /\s\+$/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhiteSpace /\s\+$/
+autocmd ColorScheme * highlight ExtraWhitespace guibg=red
 
-function! StripTrailingWhitespaces()
+function! FindTrailingWhitespace()
+  if @% == "GoToFile" " The search window of CommandT
+    return
+  endif
+  match ExtraWhitespace /\s\+$/
+endfunction
+autocmd BufEnter * call FindTrailingWhitespace()
+autocmd InsertEnter * call FindTrailingWhitespace()
+autocmd InsertLeave * call FindTrailingWhitespace()
+
+function! StripTrailingWhitespace()
   let _s=@/
   let l = line(".")
   let c = col(".")
@@ -124,28 +132,18 @@ function! StripTrailingWhitespaces()
   let @/=_s
   call cursor(l, c)
 endfunction
-autocmd BufWritePre * :call StripTrailingWhitespaces()
+autocmd BufWritePre * call StripTrailingWhitespace()
 
 " Plugins
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
 
 if has("mac")
-  " NERDTree
   nmap <silent> <D-d> :NERDTreeToggle<CR>
-
-  " Bufexplorer
-  nmap <silent> <D-x> :BufExplorer<cr>
-
-  " Command-T
+  nmap <silent> <D-x> :BufExplorer<CR>
   nmap <silent> <D-f> :CommandT<CR>
 else
-  " NERDTree
   nmap <silent> <M-d> :NERDTreeToggle<CR>
-
-  " Bufexplorer
-  nmap <silent> <M-x> :BufExplorer<cr>
-
-  " Command-T
+  nmap <silent> <M-x> :BufExplorer<CR>
   nmap <silent> <M-f> :CommandT<CR>
 endif
