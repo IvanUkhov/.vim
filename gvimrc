@@ -13,6 +13,25 @@ else
   winsize 84 50
 endif
 
+function! RestoreScreen()
+  let file = $HOME.'/.gvimscreen'
+  if filereadable(file)
+    let data = split(readfile(file)[0])
+    silent! execute 'winpos '.data[0].' '.data[1]
+  endif
+endfunction
+
+function! SaveScreen()
+  let file = $HOME.'/.gvimscreen'
+  let data = [
+    \ (getwinposx() < 0 ? 0 : getwinposx()) . ' ' .
+    \ (getwinposy() < 0 ? 0 : getwinposy()) ]
+  call writefile(data, file)
+endfunction
+
+autocmd VimEnter * call RestoreScreen()
+autocmd VimLeavePre * call SaveScreen()
+
 " Interface
 set guioptions-=T
 set guioptions-=m
