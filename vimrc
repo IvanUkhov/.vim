@@ -19,6 +19,7 @@ set linespace=4
 set visualbell t_vb=
 set iskeyword=a-z,A-Z,48-57,_
 set hidden
+set cryptmethod=blowfish
 
 syntax on
 filetype plugin indent on
