@@ -1,20 +1,16 @@
 call pathogen#infect()
 
 " General
+set nocompatible
+set encoding=utf-8
 set number
 set imdisable
 set mouse=a
 set ttymouse=xterm2
-set nocompatible
 set backspace=indent,eol,start
 set history=1000
 set showcmd
 set showmode
-set incsearch
-set hlsearch
-set ignorecase
-set showbreak=>\
-set wrap linebreak nolist
 set linespace=4
 set visualbell t_vb=
 set iskeyword=a-z,A-Z,48-57,_
@@ -23,7 +19,20 @@ set cryptmethod=blowfish
 
 syntax on
 filetype plugin indent on
-scriptencoding utf-8
+
+" Searching
+set incsearch
+set hlsearch
+set ignorecase
+
+" Line wrapping
+set wrap
+set linebreak
+set showbreak=↪\ "
+
+" Invisible characters
+set list
+set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 
 " Status line
 set statusline=%f
@@ -110,30 +119,6 @@ function! RestoreCursorPosition()
   end
 endfunction
 autocmd BufReadPost * call RestoreCursorPosition()
-
-" Trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd ColorScheme * highlight ExtraWhitespace guibg=red
-
-function! FindTrailingWhitespace()
-  if @% == "GoToFile" " The search window of CommandT
-    return
-  endif
-  match ExtraWhitespace /\s\+$/
-endfunction
-autocmd BufEnter * call FindTrailingWhitespace()
-autocmd InsertEnter * call FindTrailingWhitespace()
-autocmd InsertLeave * call FindTrailingWhitespace()
-
-function! StripTrailingWhitespace()
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  %s/\s\+$//e
-  let @/=_s
-  call cursor(l, c)
-endfunction
-autocmd BufWritePre * call StripTrailingWhitespace()
 
 " Plugins
 let g:CommandTMaxHeight=10
