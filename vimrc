@@ -57,6 +57,19 @@ set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
 
+" Shortcuts
+let mapleader=" "
+
+function GetCurrentDirectory()
+  return substitute(expand("%:p:h"), " ", '\\\ ', "g")
+endfunction
+
+map ,, :e <C-R>=GetCurrentDirectory() . "/" <CR><Space><Backspace>
+cmap ,, <C-R>=GetCurrentDirectory() . "/" <CR><Space><Backspace>
+
+nmap <C-s> :w<CR>
+nmap <Leader><Leader> <C-^>
+
 " Navigation
 nmap <Down> gj
 nmap <Up> gk
@@ -68,15 +81,6 @@ map <C-l> <C-w>l
 
 nmap <Tab> gt
 nmap <S-Tab> gT
-
-" Shortcuts
-let mapleader=" "
-
-map ,, :e <C-R>=expand("%:p:h") . "/" <CR><SPACE><BACKSPACE>
-cmap ,, <C-R>=expand("%:p:h") . "/" <CR><SPACE><BACKSPACE>
-map ,a :A <CR>
-nmap <C-s> :w<CR>
-nmap <leader><leader> <C-^>
 
 " Indentation
 function SwitchToTabs()
@@ -123,6 +127,8 @@ autocmd BufReadPost * call RestoreCursorPosition()
 " Plugins
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
+
+nmap <Leader>f :CommandTFlush<CR>
 
 if has("mac")
   nmap <silent> <D-d> :NERDTreeToggle<CR>
