@@ -4,6 +4,9 @@ set mousemodel=extend
 " Interface
 colorscheme xoria256
 
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn guibg=#333333
+
 set guioptions-=T
 set guioptions-=m
 set guioptions+=b
