@@ -1,38 +1,9 @@
-" General
+" Input
 set mousemodel=extend
 
-" Colors
+" Interface
 colorscheme xoria256
 
-" Window
-winpos 0 0
-
-if has("mac")
-  winsize 84 40
-else
-  winsize 84 50
-endif
-
-function! RestoreScreen()
-  let file = $HOME.'/.gvimscreen'
-  if filereadable(file)
-    let data = split(readfile(file)[0])
-    silent! execute 'winpos '.data[0].' '.data[1]
-  endif
-endfunction
-
-function! SaveScreen()
-  let file = $HOME.'/.gvimscreen'
-  let data = [
-    \ (getwinposx() < 0 ? 0 : getwinposx()) . ' ' .
-    \ (getwinposy() < 0 ? 0 : getwinposy()) ]
-  call writefile(data, file)
-endfunction
-
-autocmd VimEnter * call RestoreScreen()
-autocmd VimLeavePre * call SaveScreen()
-
-" Interface
 set guioptions-=T
 set guioptions-=m
 set guioptions+=b
@@ -43,6 +14,39 @@ if has("mac")
 else
   set guifont=Courier\ 10\ Pitch\ 11
 endif
+
+" Window
+winpos 0 0
+
+function! ResizeWindow()
+  if has("mac")
+    winsize 84 40
+  else
+    winsize 84 50
+  endif
+endfunction
+call ResizeWindow()
+
+nmap <Leader>r :call ResizeWindow()<CR>
+
+function! RestoreSession()
+  let file = $HOME.'/.gvimsession'
+  if filereadable(file)
+    let data = split(readfile(file)[0])
+    silent! execute 'winpos '.data[0].' '.data[1]
+  endif
+endfunction
+
+function! SaveSession()
+  let file = $HOME.'/.gvimsession'
+  let data = [
+    \ (getwinposx() < 0 ? 0 : getwinposx()) . ' ' .
+    \ (getwinposy() < 0 ? 0 : getwinposy()) ]
+  call writefile(data, file)
+endfunction
+
+autocmd VimEnter * call RestoreSession()
+autocmd VimLeavePre * call SaveSession()
 
 " Shortcuts
 if has("mac")

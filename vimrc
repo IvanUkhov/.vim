@@ -3,44 +3,53 @@ call pathogen#infect()
 " General
 set nocompatible
 set encoding=utf-8
-set number
-set imdisable
-set mouse=a
-set ttymouse=xterm2
-set backspace=indent,eol,start
-set history=1000
-set showcmd
-set showmode
-set linespace=4
-set visualbell t_vb=
-set iskeyword=a-z,A-Z,48-57,_
 set hidden
+set number
+set linespace=4
+set history=1000
 set cryptmethod=blowfish
 
 syntax on
 filetype plugin indent on
 
+" Input
+set imdisable
+set mouse=a
+set ttymouse=xterm2
+set backspace=indent,eol,start
+set visualbell t_vb=
+
+let mapleader=" "
+
+" Status line
+set laststatus=2
+
+set showcmd
+set showmode
+
+set statusline=%f
+set statusline+=%=
+set statusline+=%c,
+set statusline+=%l/%L
+set statusline+=\ %P
+
 " Searching
 set incsearch
 set hlsearch
 set ignorecase
+set iskeyword=a-z,A-Z,48-57,_
 
 " Line wrapping
 set wrap
 set linebreak
 set showbreak=↪\ "
 
+nmap <Leader>w :set wrap<CR>
+nmap <Leader>nw :set nowrap<CR>
+
 " Invisible characters
 set list
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
-
-" Status line
-set statusline=%f
-set statusline+=%=
-set statusline+=%c,
-set statusline+=%l/%L
-set statusline+=\ %P
-set laststatus=2
 
 " Folding
 set foldmethod=indent
@@ -57,19 +66,6 @@ set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
 
-" Shortcuts
-let mapleader=" "
-
-function GetCurrentDirectory()
-  return substitute(expand("%:p:h"), " ", '\\\ ', "g")
-endfunction
-
-map ,, :e <C-R>=GetCurrentDirectory() . "/" <CR><Space><Backspace>
-cmap ,, <C-R>=GetCurrentDirectory() . "/" <CR><Space><Backspace>
-
-nmap <C-s> :w<CR>
-nmap <Leader><Leader> <C-^>
-
 " Navigation
 nmap <Down> gj
 nmap <Up> gk
@@ -82,8 +78,10 @@ map <C-l> <C-w>l
 nmap <Tab> gt
 nmap <S-Tab> gT
 
+nmap <Leader><Leader> <C-^>
+
 " Indentation
-function SwitchToTabs()
+function! SwitchToTabs()
   set shiftwidth=4
   set softtabstop=0
   set tabstop=4
@@ -92,7 +90,7 @@ function SwitchToTabs()
 endfunction
 autocmd BufEnter *.c,*.cpp,*.h,*.hpp call SwitchToTabs()
 
-function SwitchToSpaces()
+function! SwitchToSpaces()
   set shiftwidth=2
   set softtabstop=2
   set tabstop=2
@@ -106,12 +104,12 @@ call SwitchToSpaces()
 " Spell checking
 set nospell
 
-function CheckSpelling()
+function! CheckSpelling()
   set spelllang=en_us
   syntax spell toplevel
   set spell
 endfunction
-autocmd BufEnter *.tex,*.html call CheckSpelling()
+autocmd BufEnter *.txt,*.md,*.html,*.tex call CheckSpelling()
 
 " Cursor position
 function! RestoreCursorPosition()
@@ -139,3 +137,13 @@ else
   nmap <silent> <M-x> :BufExplorer<CR>
   nmap <silent> <M-f> :CommandT<CR>
 endif
+
+" Other shortcuts
+function! GetCurrentDirectory()
+  return substitute(expand("%:p:h"), " ", '\\\ ', "g")
+endfunction
+
+map ,, :e <C-R>=GetCurrentDirectory() . "/" <CR><Space><Backspace>
+cmap ,, <C-R>=GetCurrentDirectory() . "/" <CR><Space><Backspace>
+
+nmap <C-s> :w<CR>
