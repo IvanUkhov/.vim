@@ -5,12 +5,9 @@ Best enjoyed responsibly.
 ## Installation
 
     $ rm -rf ~/.vimrc ~/.gvimrc ~/.vim
-    $ git clone https://github.com/IvanUkhov/dot-vim.git ~/.vim
+    $ git clone https://github.com/IvanUkhov/dot-vim.git ~/.vim --recursive
     $ ln -s ~/.vim/vimrc ~/.vimrc
     $ ln -s ~/.vim/gvimrc ~/.gvimrc
-    $ cd ~/.vim
-    $ git submodule init
-    $ git submodule update
-    $ cd ~/bundle/command-t/ruby/command-t
+    $ cd ~/.vim/bundle/command-t/ruby/command-t
     $ ruby extconf.rb
     $ make
