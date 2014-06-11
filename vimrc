@@ -36,8 +36,12 @@ set statusline+=\ %P
 " Searching
 set incsearch
 set hlsearch
-set ignorecase
 set iskeyword=a-z,A-Z,48-57,_
+
+set ignorecase
+
+nmap <Leader>i :set ignorecase<CR>
+nmap <Leader>ni :set noignorecase<CR>
 
 " Line wrapping
 set wrap
@@ -103,6 +107,9 @@ call SwitchToSpaces()
 
 " Spell checking
 set nospell
+
+nmap <Leader>s :set spell<CR>
+nmap <Leader>ns :set nospell<CR>
 
 function! CheckSpelling()
   set spelllang=en_us
