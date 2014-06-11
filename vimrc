@@ -88,7 +88,7 @@ function! SwitchToTabs()
   set noexpandtab
   set cindent
 endfunction
-autocmd BufEnter *.c,*.cpp,*.h,*.hpp call SwitchToTabs()
+autocmd BufEnter *.js,*.c,*.cpp,*.h,*.hpp call SwitchToTabs()
 
 function! SwitchToSpaces()
   set shiftwidth=2
