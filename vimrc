@@ -55,6 +55,14 @@ nmap <Leader>nw :set nowrap<CR>
 set list
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 
+function! StripTrailingWhitespace()
+  let l:pattern = @/
+  silent! %s/\s\+$//
+  let @/ = l:pattern
+endfunction
+
+nmap <leader>c :call StripTrailingWhitespace()<CR>
+
 " Folding
 set foldmethod=indent
 set foldnestmax=3
