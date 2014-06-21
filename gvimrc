@@ -30,11 +30,7 @@ function! ResizeWindow()
     endif
   endif
 
-  if has("mac")
-    let height = 40
-  else
-    let height = 50
-  endif
+  let height = 100
 
   execute 'winsize ' . width . ' ' . height
 endfunction
