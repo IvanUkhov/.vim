@@ -4,7 +4,7 @@ set mousemodel=extend
 " Interface
 colorscheme xoria256
 
-let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=join(range(81,999), ",")
 highlight ColorColumn guibg=#333333
 
 set guioptions-=T
@@ -22,26 +22,36 @@ endif
 winpos 0 0
 
 function! ResizeWindow()
-  if has("mac")
-    winsize 84 40
-  else
-    winsize 84 50
+  let width = 84
+
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      let width = width + g:NERDTreeWinSize + 1
+    endif
   endif
+
+  if has("mac")
+    let height = 40
+  else
+    let height = 50
+  endif
+
+  execute 'winsize ' . width . ' ' . height
 endfunction
 call ResizeWindow()
 
 nmap <Leader>r :call ResizeWindow()<CR>
 
 function! RestoreSession()
-  let file = $HOME.'/.gvimsession'
+  let file = $HOME . '/.gvimsession'
   if filereadable(file)
     let data = split(readfile(file)[0])
-    silent! execute 'winpos '.data[0].' '.data[1]
+    silent! execute 'winpos ' . data[0] . ' ' . data[1]
   endif
 endfunction
 
 function! SaveSession()
-  let file = $HOME.'/.gvimsession'
+  let file = $HOME . '/.gvimsession'
   let data = [
     \ (getwinposx() < 0 ? 0 : getwinposx()) . ' ' .
     \ (getwinposy() < 0 ? 0 : getwinposy()) ]
