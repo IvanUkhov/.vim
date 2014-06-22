@@ -92,6 +92,9 @@ nmap <S-Tab> gT
 
 nmap <Leader><Leader> <C-^>
 
+nmap <Leader>h :bn<CR>
+nmap <Leader>l :bp<CR>
+
 " Indentation
 function! SwitchToTabs()
   set shiftwidth=4
