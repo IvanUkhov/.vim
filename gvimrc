@@ -2,10 +2,14 @@
 set mousemodel=extend
 
 " Interface
-colorscheme xoria256
+set background=light
+
+nmap <Leader>d :set background=dark<CR>
+nmap <Leader>l :set background=light<CR>
+
+colorscheme solarized
 
 let &colorcolumn=81
-highlight ColorColumn guibg=#663333
 
 set guioptions-=T
 set guioptions-=m
