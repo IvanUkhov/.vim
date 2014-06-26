@@ -140,6 +140,8 @@ function! RestoreCursorPosition()
 endfunction
 autocmd BufReadPost * call RestoreCursorPosition()
 
+setlocal cursorline
+
 " Plugins
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
