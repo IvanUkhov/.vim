@@ -92,8 +92,8 @@ nmap <S-Tab> gT
 
 nmap <Leader><Leader> <C-^>
 
-nmap <Leader>h :bn<CR>
-nmap <Leader>l :bp<CR>
+nmap <Leader>j :bn<CR>
+nmap <Leader>k :bp<CR>
 
 " Indentation
 function! SwitchToTabs()
