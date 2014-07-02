@@ -19,26 +19,30 @@ if has("mac")
   set transparency=0
   set guifont=Menlo:h17
 else
-  set guifont=Courier\ 10\ Pitch\ 11
+  set guifont=Monospace\ 11
 endif
 
 " Window
 winpos 0 0
 
-function! ResizeWindow()
-  let width = 84
+function! ResizeWindow(...)
+  if a:0 > 0
+    let lines = a:1
+  else
+    let lines = &lines
+  end
+
+  let columns = 80 + &numberwidth
 
   if exists("t:NERDTreeBufName")
     if bufwinnr(t:NERDTreeBufName) != -1
-      let width = width + g:NERDTreeWinSize + 1
+      let columns = columns + g:NERDTreeWinSize + 1
     endif
   endif
 
-  let height = 100
-
-  execute 'winsize ' . width . ' ' . height
+  execute 'set lines=' . lines . ' columns=' . columns
 endfunction
-call ResizeWindow()
+call ResizeWindow(100)
 
 nmap <Leader>r :call ResizeWindow()<CR>
 
