@@ -79,6 +79,8 @@ set sidescrolloff=7
 set sidescroll=1
 
 " Navigation
+set nostartofline
+
 nmap <Down> gj
 nmap <Up> gk
 
