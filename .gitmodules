@@ -14,9 +14,9 @@
 	path = bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
 	ignore = untracked
-[submodule "bundle/ruby-matchit"]
-	path = bundle/ruby-matchit
-	url = https://github.com/IvanUkhov/ruby-matchit.git
+[submodule "bundle/indent-matchit"]
+	path = bundle/indent-matchit
+	url = https://github.com/IvanUkhov/indent-matchit.git
 	ignore = untracked
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
