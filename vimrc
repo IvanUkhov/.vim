@@ -47,7 +47,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   command -nargs=+ -complete=file -bar
     \ Ag silent! grep! <args>|cwindow|redraw!
-nmap \ :Ag<SPACE>
+  nmap \ :Ag<SPACE>
 endif
 
 nmap <Leader>g :grep! "\b<C-R><C-W>\b"<CR><CR>:cw<CR>
@@ -154,19 +154,20 @@ autocmd BufReadPost * call RestoreCursorPosition()
 set cursorline
 
 " Plugins
-let g:CommandTMaxHeight=10
-let g:CommandTMatchWindowAtTop=1
+let g:ctrlp_map = ''
+let g:ctrlp_cmd = ''
+let g:ctrlp_working_path_mode = 'ra'
 
-nmap <Leader>f :CommandTFlush<CR>
+nmap <Leader>f :CtrlPClearCache<CR>
 
 if has("mac")
   nmap <silent> <D-d> :NERDTreeToggle<CR>
   nmap <silent> <D-x> :BufExplorer<CR>
-  nmap <silent> <D-f> :CommandT<CR>
+  nmap <silent> <D-f> :CtrlP<CR>
 else
   nmap <silent> <M-d> :NERDTreeToggle<CR>
   nmap <silent> <M-x> :BufExplorer<CR>
-  nmap <silent> <M-f> :CommandT<CR>
+  nmap <silent> <M-f> :CtrlP<CR>
 endif
 
 " Other shortcuts
