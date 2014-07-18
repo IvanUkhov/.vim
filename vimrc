@@ -43,8 +43,17 @@ set ignorecase
 nmap <Leader>i :set ignorecase<CR>
 nmap <Leader>ni :set noignorecase<CR>
 
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  command -nargs=+ -complete=file -bar
+    \ Ag silent! grep! <args>|cwindow|redraw!
+nmap \ :Ag<SPACE>
+endif
+
+nmap <Leader>g :grep! "\b<C-R><C-W>\b"<CR><CR>:cw<CR>
+
 " Line wrapping
-set wrap
+set nowrap
 set linebreak
 set showbreak=↪\ "
 
