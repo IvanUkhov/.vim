@@ -6,8 +6,8 @@ Best enjoyed responsibly.
 ## Installation
 
 ```bash
-$ rm -rf ~/.vimrc ~/.gvimrc ~/.vim
+$ rm -rf ~/.vim
 $ git clone https://github.com/IvanUkhov/.vim.git ~/.vim --recursive
-$ ln -s ~/.vim/vimrc ~/.vimrc
-$ ln -s ~/.vim/gvimrc ~/.gvimrc
+$ ln -sFi ~/.vim/vimrc ~/.vimrc
+$ ln -sFi ~/.vim/gvimrc ~/.gvimrc
 ```
