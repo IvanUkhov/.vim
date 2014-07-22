@@ -21,6 +21,14 @@ set visualbell t_vb=
 
 let mapleader=" "
 
+" Interface
+nmap <Leader>d :set background=dark<CR>
+nmap <Leader>l :set background=light<CR>
+
+let g:solarized_termcolors=256
+
+colorscheme solarized
+
 " Status line
 set laststatus=2
 
@@ -70,7 +78,7 @@ function! StripTrailingWhitespace()
   let @/ = l:pattern
 endfunction
 
-nmap <leader>c :call StripTrailingWhitespace()<CR>
+nmap <Leader>c :call StripTrailingWhitespace()<CR>
 
 " Folding
 set foldmethod=indent
@@ -179,3 +187,5 @@ map ,, :e <C-R>=GetCurrentDirectory() . "/" <CR><Space><Backspace>
 cmap ,, <C-R>=GetCurrentDirectory() . "/" <CR><Space><Backspace>
 
 nmap <C-s> :w<CR>
+
+nnoremap Q @@
