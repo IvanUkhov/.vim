@@ -27,7 +27,7 @@ nmap <Leader>l :set background=light<CR>
 
 let g:solarized_termcolors=256
 colorscheme solarized
-set background=light
+set background=dark
 
 " Status line
 set laststatus=2
