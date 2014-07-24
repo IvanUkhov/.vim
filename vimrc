@@ -46,7 +46,7 @@ set incsearch
 set hlsearch
 set iskeyword=a-z,A-Z,48-57,_
 
-set ignorecase
+set noignorecase
 
 nmap <Leader>i :set ignorecase<CR>
 nmap <Leader>ni :set noignorecase<CR>
@@ -111,6 +111,7 @@ nmap <S-Tab> gT
 
 nmap <Leader><Leader> <C-^>
 
+nmap <Leader>x :bd<CR>
 nmap <Leader>j :bn<CR>
 nmap <Leader>k :bp<CR>
 
@@ -178,14 +179,16 @@ else
   nmap <silent> <M-f> :CtrlP<CR>
 endif
 
-" Other shortcuts
-function! GetCurrentDirectory()
+" Edit shortcuts
+nmap <Leader>c :e ~/.vimrc<CR>
+
+function! GetFileDirectory()
   return substitute(expand("%:p:h"), " ", '\\\ ', "g")
 endfunction
 
-map ,, :e <C-R>=GetCurrentDirectory() . "/" <CR><Space><Backspace>
-cmap ,, <C-R>=GetCurrentDirectory() . "/" <CR><Space><Backspace>
+nmap ,, :e <C-R>=GetFileDirectory() . "/" <CR><Space><Backspace>
+cmap ,, <C-R>=GetFileDirectory() . "/" <CR><Space><Backspace>
 
+" Other shortcuts
 nmap <C-s> :w<CR>
-
 nnoremap Q @@
