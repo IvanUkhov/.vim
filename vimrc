@@ -73,12 +73,12 @@ set list
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 
 function! StripTrailingWhitespace()
-  let l:pattern = @/
+  let pattern = @/
   silent! %s/\s\+$//
-  let @/ = l:pattern
+  let @/ = pattern
 endfunction
 
-nmap <Leader>c :call StripTrailingWhitespace()<CR>
+nmap <Leader>cl :call StripTrailingWhitespace()<CR>
 
 " Folding
 set foldmethod=indent
@@ -105,9 +105,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
 
 nnoremap <Leader><Leader> <C-^>
 
