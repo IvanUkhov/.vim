@@ -162,6 +162,27 @@ autocmd BufReadPost * call RestoreCursorPosition()
 
 set cursorline
 
+" Editing
+nmap <Leader>vi :e ~/.vimrc<CR>
+
+function! GetFileDirectory()
+  return substitute(expand('%:p:h'), ' ', '\\\ ', "g")
+endfunction
+
+nmap ,, :e <C-R>=GetFileDirectory() . "/" <CR><Space><Backspace>
+cmap ,, <C-R>=GetFileDirectory() . "/" <CR><Space><Backspace>
+
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <Leader>mv :call RenameFile()<CR>
+
 " Plugins
 let g:ctrlp_map = ''
 let g:ctrlp_cmd = ''
@@ -179,16 +200,7 @@ else
   nmap <silent> <M-f> :CtrlP<CR>
 endif
 
-" Edit shortcuts
-nmap <Leader>c :e ~/.vimrc<CR>
-
-function! GetFileDirectory()
-  return substitute(expand("%:p:h"), " ", '\\\ ', "g")
-endfunction
-
-nmap ,, :e <C-R>=GetFileDirectory() . "/" <CR><Space><Backspace>
-cmap ,, <C-R>=GetFileDirectory() . "/" <CR><Space><Backspace>
-
-" Other shortcuts
+" Other
+nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <C-s> :w<CR>
-nnoremap Q @@
+nmap Q @@
