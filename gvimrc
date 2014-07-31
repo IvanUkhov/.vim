@@ -1,22 +1,6 @@
 " Input
 set mousemodel=extend
 
-" Interface
-set background=light
-
-let &colorcolumn=81
-
-set guioptions-=T
-set guioptions-=m
-set guioptions+=b
-
-if has("mac")
-  set transparency=0
-  set guifont=Menlo:h17
-else
-  set guifont=Monospace\ 11
-endif
-
 " Window
 winpos 0 0
 
@@ -29,7 +13,7 @@ function! ResizeWindow(...)
 
   let columns = 80 + &numberwidth
 
-  if exists("t:NERDTreeBufName")
+  if exists('t:NERDTreeBufName')
     if bufwinnr(t:NERDTreeBufName) != -1
       let columns = columns + g:NERDTreeWinSize + 1
     endif
@@ -60,9 +44,22 @@ endfunction
 autocmd VimEnter * call RestoreSession()
 autocmd VimLeavePre * call SaveSession()
 
-" Shortcuts
-if has("mac")
+" Interface
+set background=light
+
+let &colorcolumn=81
+
+set guioptions-=T
+set guioptions-=m
+set guioptions+=b
+
+if has('mac')
+  set transparency=0
+  set guifont=Menlo:h17
+
   macmenu &File.Print key=<nop>
   macmenu &Edit.Cut key=<nop>
   macmenu &Edit.Find.Find\.\.\. key=<nop>
+else
+  set guifont=Monospace\ 11
 endif

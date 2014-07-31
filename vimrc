@@ -19,7 +19,11 @@ set ttymouse=xterm2
 set backspace=indent,eol,start
 set visualbell t_vb=
 
-let mapleader=" "
+let mapleader=' '
+
+" Window
+nmap + <C-W>2+
+nmap - <C-W>2-
 
 " Interface
 nmap <Leader>d :set background=dark<CR>
@@ -35,11 +39,7 @@ set laststatus=2
 set showcmd
 set showmode
 
-set statusline=%f
-set statusline+=%=
-set statusline+=%c,
-set statusline+=%l/%L
-set statusline+=\ %P
+set statusline=%<%f\ %-4(%m%)%=%-8(%3l,%03c%)
 
 " Searching
 set incsearch
@@ -86,12 +86,12 @@ set foldnestmax=3
 set nofoldenable
 
 " Tab completion
-set wildmode=list:longest
+set wildmode=list,longest
 set wildmenu
 set wildignore=*.o,*~
 
 " Scrolling
-set scrolloff=3
+set scrolloff=1
 set sidescrolloff=7
 set sidescroll=1
 
@@ -111,7 +111,7 @@ nmap <S-Tab> gT
 
 nmap <Leader><Leader> <C-^>
 
-nmap <Leader>x :bd<CR>
+nmap <Leader>x :w<CR>:bd<CR>
 nmap <Leader>j :bn<CR>
 nmap <Leader>k :bp<CR>
 
@@ -169,7 +169,7 @@ let g:ctrlp_working_path_mode = 'ra'
 
 nmap <Leader>f :CtrlPClearCache<CR>
 
-if has("mac")
+if has('mac')
   nmap <silent> <D-d> :NERDTreeToggle<CR>
   nmap <silent> <D-x> :BufExplorer<CR>
   nmap <silent> <D-f> :CtrlP<CR>
