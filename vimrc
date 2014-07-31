@@ -22,8 +22,10 @@ set visualbell t_vb=
 let mapleader=' '
 
 " Window
-nnoremap + <C-W>2+
+nnoremap = <C-W>2+
 nnoremap - <C-W>2-
+nnoremap + <C-W>2>
+nnoremap _ <C-W>2<
 
 " Interface
 nmap <Leader>d :set background=dark<CR>
@@ -86,7 +88,7 @@ set foldnestmax=3
 set nofoldenable
 
 " Tab completion
-set wildmode=list,longest
+set wildmode=list:longest
 set wildmenu
 set wildignore=*.o,*~
 
