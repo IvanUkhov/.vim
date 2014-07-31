@@ -22,8 +22,8 @@ set visualbell t_vb=
 let mapleader=' '
 
 " Window
-nmap + <C-W>2+
-nmap - <C-W>2-
+nnoremap + <C-W>2+
+nnoremap - <C-W>2-
 
 " Interface
 nmap <Leader>d :set background=dark<CR>
@@ -98,18 +98,18 @@ set sidescroll=1
 " Navigation
 set nostartofline
 
-nmap <Down> gj
-nmap <Up> gk
+nnoremap <Down> gj
+nnoremap <Up> gk
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-nmap <Tab> gt
-nmap <S-Tab> gT
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
 
-nmap <Leader><Leader> <C-^>
+nnoremap <Leader><Leader> <C-^>
 
 nmap <Leader>x :w<CR>:bd<CR>
 nmap <Leader>j :bn<CR>
@@ -203,4 +203,4 @@ endif
 " Other
 nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <C-s> :w<CR>
-nmap Q @@
+nnoremap Q @@
