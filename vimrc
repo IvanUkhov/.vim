@@ -41,7 +41,7 @@ set laststatus=2
 set showcmd
 set showmode
 
-set statusline=%<%f\ %-4(%m%)%=%-8(%3l,%03c%)
+set statusline=%<%f\ %-4(%m%)%=%-8(%3l,%3c%)
 
 " Searching
 set incsearch
