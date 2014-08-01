@@ -74,8 +74,13 @@ set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 
 function! StripTrailingWhitespace()
   let pattern = @/
+  let line = line('.')
+  let column = col('.')
+
   silent! %s/\s\+$//
+
   let @/ = pattern
+  call cursor(line, column)
 endfunction
 
 nmap <Leader>cl :call StripTrailingWhitespace()<CR>
