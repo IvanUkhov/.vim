@@ -161,19 +161,23 @@ set cursorline
 " Editing
 nmap <Leader>vi :e ~/.vimrc<CR>
 
-function! GetFileDirectory()
-  return substitute(expand('%:p:h'), ' ', '\\\ ', "g")
+function! SanitizePath(path)
+  return substitute(a:path, ' ', '\\\ ', 'g')
 endfunction
 
-nmap ,, :e <C-R>=GetFileDirectory() . "/" <CR><Space><Backspace>
-cmap ,, <C-R>=GetFileDirectory() . "/" <CR><Space><Backspace>
+function! GetFileDirectory()
+  return SanitizePath(expand('%:p:h'))
+endfunction
+
+nmap ,, :e <C-R>=GetFileDirectory() . '/' <CR><Space><Backspace>
+cmap ,, <C-R>=GetFileDirectory() . '/' <CR><Space><Backspace>
 
 function! RenameFile()
   let old_name = expand('%')
   let new_name = input('New name: ', expand('%'), 'file')
   if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
+    exec ':saveas ' . SanitizePath(new_name)
+    exec ':silent !rm ' . SanitizePath(old_name)
     redraw!
   endif
 endfunction
