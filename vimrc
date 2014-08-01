@@ -50,8 +50,7 @@ set iskeyword=a-z,A-Z,48-57,_
 
 set noignorecase
 
-nmap <Leader>i :set ignorecase<CR>
-nmap <Leader>ni :set noignorecase<CR>
+nmap <Leader>i :set ignorecase! \| set ignorecase?<CR>
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
@@ -67,8 +66,7 @@ set nowrap
 set linebreak
 set showbreak=↪\ "
 
-nmap <Leader>w :set wrap<CR>
-nmap <Leader>nw :set nowrap<CR>
+nmap <Leader>w :set wrap! \| set wrap?<CR>
 
 " Invisible characters
 set list
@@ -138,8 +136,7 @@ call SwitchToSpaces()
 " Spell checking
 set nospell
 
-nmap <Leader>s :set spell<CR>
-nmap <Leader>ns :set nospell<CR>
+nmap <Leader>s :set spell! \| set spell?<CR>
 
 function! CheckSpelling()
   set spelllang=en_us
