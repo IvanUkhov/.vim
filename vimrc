@@ -28,12 +28,12 @@ nnoremap + <C-W>2>
 nnoremap _ <C-W>2<
 
 " Interface
-nmap <Leader>d :set background=dark<CR>
-nmap <Leader>l :set background=light<CR>
-
 let g:solarized_termcolors=256
-colorscheme solarized
 set background=dark
+colorscheme solarized
+
+nmap <Leader>d :set background=dark \| colorscheme solarized<CR>
+nmap <Leader>l :set background=light \| colorscheme solarized<CR>
 
 " Status line
 set laststatus=2
