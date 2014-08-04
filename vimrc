@@ -66,7 +66,7 @@ set nowrap
 set linebreak
 set showbreak=↪\ "
 
-nmap <Leader>w :set wrap! \| set wrap?<CR>
+nmap <Leader>w :set wrap! list! \| set wrap?<CR>
 
 " Invisible characters
 set list
@@ -164,6 +164,8 @@ autocmd BufReadPost * call RestoreCursorPosition()
 set cursorline
 
 " Editing
+set nojoinspaces
+
 nmap <Leader>vi :e ~/.vimrc<CR>
 
 function! SanitizePath(path)
