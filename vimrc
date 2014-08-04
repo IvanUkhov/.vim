@@ -48,7 +48,7 @@ set incsearch
 set hlsearch
 set iskeyword=a-z,A-Z,48-57,_
 
-set noignorecase
+set ignorecase smartcase
 
 nmap <Leader>i :set ignorecase! \| set ignorecase?<CR>
 
