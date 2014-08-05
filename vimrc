@@ -1,5 +1,8 @@
 call pathogen#infect()
 
+mapclear
+autocmd!
+
 " General
 set nocompatible
 set encoding=utf-8
@@ -32,8 +35,19 @@ let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
-nmap <Leader>d :set background=dark \| colorscheme solarized<CR>
-nmap <Leader>l :set background=light \| colorscheme solarized<CR>
+function! SwitchColorscheme()
+  let current = &background
+
+  if current == 'light'
+    set background=dark
+  else
+    set background=light
+  endif
+
+  colorscheme solarized
+endfunction
+
+nmap <Leader>sc :call SwitchColorscheme()<CR>
 
 " Status line
 set laststatus=2
@@ -50,11 +64,11 @@ set iskeyword=a-z,A-Z,48-57,_
 
 set ignorecase smartcase
 
-nmap <Leader>i :set ignorecase! \| set ignorecase?<CR>
+nmap <Leader>si :set ignorecase! \| set ignorecase?<CR>
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
-  command -nargs=+ -complete=file -bar
+  command! -nargs=+ -complete=file -bar
     \ Ag silent! grep! <args>|cwindow|redraw!
   nmap \ :Ag<SPACE>
 endif
@@ -66,7 +80,7 @@ set nowrap
 set linebreak
 set showbreak=↪\ "
 
-nmap <Leader>w :set wrap! list! \| set wrap?<CR>
+nmap <Leader>sw :set wrap! list! \| set wrap?<CR>
 
 " Invisible characters
 set list
@@ -113,9 +127,10 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <Leader><Leader> <C-^>
 
-nmap <Leader>x :w<CR>:bd<CR>
 nmap <Leader>j :bn<CR>
+nmap <Leader>J :bn<CR>:bd #<CR>
 nmap <Leader>k :bp<CR>
+nmap <Leader>K :bp<CR>:bd #<CR>
 
 " Indentation
 function! SwitchToTabs()
@@ -141,7 +156,7 @@ call SwitchToSpaces()
 " Spell checking
 set nospell
 
-nmap <Leader>s :set spell! \| set spell?<CR>
+nmap <Leader>ss :set spell! \| set spell?<CR>
 
 function! CheckSpelling()
   set spelllang=en_us
@@ -152,12 +167,10 @@ autocmd BufEnter *.txt,*.md,*.html,*.tex call CheckSpelling()
 
 " Cursor position
 function! RestoreCursorPosition()
-  if &filetype !~ 'commit\c'
-    if line("'\"") > 0 && line("'\"") <= line("$")
-      exe "normal! g`\""
-      normal! zz
-    endif
-  end
+  if line("'\"") > 0 && line("'\"") <= line('$')
+    exe 'normal! g`"'
+    normal! zz
+  endif
 endfunction
 autocmd BufReadPost * call RestoreCursorPosition()
 
@@ -166,18 +179,19 @@ set cursorline
 " Editing
 set nojoinspaces
 
-nmap <Leader>vi :e ~/.vimrc<CR>
+nmap <Leader>vi :e $MYVIMRC<CR>
+autocmd BufWritePost .vimrc source $MYVIMRC
 
 function! SanitizePath(path)
   return substitute(a:path, ' ', '\\\ ', 'g')
 endfunction
 
 function! GetFileDirectory()
-  return SanitizePath(expand('%:p:h'))
+  return SanitizePath(expand('%:p:h')) . '/'
 endfunction
 
-nmap ,, :e <C-R>=GetFileDirectory() . '/' <CR><Space><Backspace>
-cmap ,, <C-R>=GetFileDirectory() . '/' <CR><Space><Backspace>
+nmap ,, :e <C-R>=GetFileDirectory()<CR><Space><Backspace>
+cmap ,, <C-R>=GetFileDirectory()<CR><Space><Backspace>
 
 function! RenameFile()
   let old_name = expand('%')
@@ -191,23 +205,88 @@ endfunction
 map <Leader>mv :call RenameFile()<CR>
 
 " Plugins
+nmap <Leader>t :NERDTreeToggle<CR>
+
+let g:bufExplorerDisableDefaultKeyMapping = 1
+nmap <Leader>b :BufExplorerHorizontalSplit<CR>
+
 let g:ctrlp_map = ''
 let g:ctrlp_cmd = ''
 let g:ctrlp_working_path_mode = 'ra'
-
-nmap <Leader>f :CtrlPClearCache<CR>
-
-if has('mac')
-  nmap <silent> <D-d> :NERDTreeToggle<CR>
-  nmap <silent> <D-x> :BufExplorer<CR>
-  nmap <silent> <D-f> :CtrlP<CR>
-else
-  nmap <silent> <M-d> :NERDTreeToggle<CR>
-  nmap <silent> <M-x> :BufExplorer<CR>
-  nmap <silent> <M-f> :CtrlP<CR>
-endif
+nmap <Leader>f :CtrlP<CR>
+nmap <Leader>rf :CtrlPClearCache<CR>
 
 " Other
 nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <C-s> :w<CR>
 nnoremap Q @@
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GUI                                                                          "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if !has('gui_running')
+  finish
+end
+
+" Input
+set mousemodel=extend
+
+" Window
+function! ResizeWindow(...)
+  if a:0 > 0
+    let lines = a:1
+  else
+    let lines = &lines
+  end
+
+  let columns = 80 + &numberwidth
+
+  if exists('t:NERDTreeBufName')
+    if bufwinnr(t:NERDTreeBufName) != -1
+      let columns = columns + g:NERDTreeWinSize + 1
+    endif
+  endif
+
+  execute 'set lines=' . lines . ' columns=' . columns
+endfunction
+nmap <Leader>rw :call ResizeWindow()<CR>
+
+function! RestoreSession()
+  call ResizeWindow(100)
+
+  let file = $HOME . '/.gvimsession'
+
+  if filereadable(file)
+    let data = split(readfile(file)[0])
+    silent! execute 'winpos ' . data[0] . ' ' . data[1]
+  else
+    winpos 0 0
+  endif
+endfunction
+
+function! SaveSession()
+  let file = $HOME . '/.gvimsession'
+  let data = [
+    \ (getwinposx() < 0 ? 0 : getwinposx()) . ' ' .
+    \ (getwinposy() < 0 ? 0 : getwinposy()) ]
+  call writefile(data, file)
+endfunction
+
+autocmd VimEnter * call RestoreSession()
+autocmd VimLeavePre * call SaveSession()
+
+" Interface
+set background=light
+
+let &colorcolumn=81
+
+set guioptions-=T
+set guioptions-=m
+set guioptions+=b
+
+if has('mac')
+  set guifont=Menlo:h17
+else
+  set guifont=Monospace\ 11
+endif

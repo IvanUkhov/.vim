@@ -9,5 +9,4 @@ Best enjoyed responsibly.
 $ rm -rf ~/.vim
 $ git clone https://github.com/IvanUkhov/.vim.git ~/.vim --recursive
 $ ln -sFi ~/.vim/vimrc ~/.vimrc
-$ ln -sFi ~/.vim/gvimrc ~/.gvimrc
 ```
