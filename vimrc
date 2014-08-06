@@ -25,10 +25,10 @@ set visualbell t_vb=
 let mapleader=' '
 
 " Window
-nnoremap = <C-W>2+
-nnoremap - <C-W>2-
-nnoremap + <C-W>2>
-nnoremap _ <C-W>2<
+nnoremap <C-Down> <C-W>2+
+nnoremap <C-Up> <C-W>2-
+nnoremap <C-Right> <C-W>2>
+nnoremap <C-Left> <C-W>2<
 
 " Interface
 let g:solarized_termcolors=256
