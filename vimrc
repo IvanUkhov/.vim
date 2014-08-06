@@ -31,8 +31,7 @@ nnoremap <C-Right> <C-W>2>
 nnoremap <C-Left> <C-W>2<
 
 " Interface
-let g:solarized_termcolors=256
-set background=dark
+set background=light
 colorscheme solarized
 
 function! SwitchColorscheme()
@@ -48,6 +47,8 @@ function! SwitchColorscheme()
 endfunction
 
 nmap <Leader>sc :call SwitchColorscheme()<CR>
+
+let &colorcolumn=81
 
 " Status line
 set laststatus=2
@@ -277,10 +278,6 @@ autocmd VimEnter * call RestoreSession()
 autocmd VimLeavePre * call SaveSession()
 
 " Interface
-set background=light
-
-let &colorcolumn=81
-
 set guioptions-=T
 set guioptions-=m
 set guioptions+=b
