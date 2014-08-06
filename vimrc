@@ -8,7 +8,6 @@ set nocompatible
 set encoding=utf-8
 set hidden
 set number
-set linespace=4
 set history=1000
 set cryptmethod=blowfish
 
@@ -112,7 +111,7 @@ set wildignore=*.o,*~
 
 " Scrolling
 set scrolloff=1
-set sidescrolloff=7
+set sidescrolloff=1
 set sidescroll=1
 
 " Navigation
@@ -282,6 +281,7 @@ set guioptions-=T
 set guioptions-=m
 set guioptions+=b
 
+set linespace=4
 if has('mac')
   set guifont=Menlo:h17
 else
