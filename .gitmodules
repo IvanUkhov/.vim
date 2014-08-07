@@ -7,7 +7,7 @@
 	url = https://github.com/scrooloose/nerdtree.git
 	ignore = untracked
 [submodule "bundle/vim-coffee-script"]
-	path = bundle/vim-coffee-script
+	path = bundle/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
 	ignore = untracked
 [submodule "bundle/indent-matchit"]
@@ -15,10 +15,10 @@
 	url = https://github.com/IvanUkhov/indent-matchit.git
 	ignore = untracked
 [submodule "bundle/vim-colors-solarized"]
-	path = bundle/vim-colors-solarized
+	path = bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized
 	ignore = untracked
 [submodule "bundle/ctrlp.vim"]
-	path = bundle/ctrlp.vim
+	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
 	ignore = untracked
