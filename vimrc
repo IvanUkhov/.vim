@@ -3,31 +3,31 @@ call pathogen#infect()
 mapclear
 autocmd!
 
-" General
+"-------------------------------------------------------------------------------
+" Common
+"-------------------------------------------------------------------------------
+
+" Basic
 set nocompatible
 set encoding=utf-8
-set hidden
 set number
+set hidden
 set history=1000
+set backspace=indent,eol,start
 set cryptmethod=blowfish
+set visualbell
+set mouse=a
 
 syntax on
 filetype plugin indent on
 
-" Input
-set imdisable
-set mouse=a
-set ttymouse=xterm2
-set backspace=indent,eol,start
-set visualbell t_vb=
-
 let mapleader=' '
 
 " Window
-nnoremap <C-Down> <C-W>2+
-nnoremap <C-Up> <C-W>2-
-nnoremap <C-Right> <C-W>2>
+nnoremap <C-Up> <C-W>2+
+nnoremap <C-Down> <C-W>2-
 nnoremap <C-Left> <C-W>2<
+nnoremap <C-Right> <C-W>2>
 
 " Interface
 set background=light
@@ -216,20 +216,29 @@ let g:ctrlp_working_path_mode = 'ra'
 nmap <Leader>f :CtrlP<CR>
 nmap <Leader>rf :CtrlPClearCache<CR>
 
-" Other
+" Various
 nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <C-s> :w<CR>
 nnoremap Q @@
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GUI                                                                          "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"-------------------------------------------------------------------------------
+" Terminal
+"-------------------------------------------------------------------------------
+
+" Input
+set ttymouse=xterm2
+set t_vb=
+
+"-------------------------------------------------------------------------------
+" GUI
+"-------------------------------------------------------------------------------
 
 if !has('gui_running')
   finish
 end
 
 " Input
+set imdisable
 set mousemodel=extend
 
 " Window
