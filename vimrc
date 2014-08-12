@@ -207,8 +207,9 @@ map <Leader>mv :call RenameFile()<CR>
 " Plugins
 nmap <Leader>t :NERDTreeToggle<CR>
 
+let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerDisableDefaultKeyMapping = 1
-nmap <Leader>b :BufExplorerHorizontalSplit<CR>
+nmap <Leader>b :BufExplorer<CR>
 
 let g:ctrlp_map = ''
 let g:ctrlp_cmd = ''
