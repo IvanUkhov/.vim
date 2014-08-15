@@ -107,7 +107,7 @@ set nofoldenable
 " Tab completion
 set wildmode=list:longest
 set wildmenu
-set wildignore=*.o,*~
+set wildignore=*/.git/*,*/build/*,*.swp,*.swo,*~
 
 " Scrolling
 set scrolloff=1
