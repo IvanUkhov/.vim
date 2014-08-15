@@ -69,7 +69,7 @@ nmap <Leader>si :set ignorecase! \| set ignorecase?<CR>
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   command! -nargs=+ -complete=file -bar
-    \ Ag silent! grep! <args>|cwindow|redraw!
+    \ Ag silent! grep! '<args>'|cwindow|redraw!
   nmap \ :Ag<SPACE>
 endif
 
