@@ -117,6 +117,9 @@ set sidescroll=1
 " Navigation
 set nostartofline
 
+nnoremap zh 5zh
+nnoremap zl 5zl
+
 nnoremap <Down> gj
 nnoremap <Up> gk
 
