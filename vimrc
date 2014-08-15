@@ -210,7 +210,7 @@ nmap <Leader>t :NERDTreeToggle<CR>
 
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerDisableDefaultKeyMapping = 1
-nmap <Leader>b :BufExplorer<CR>
+nmap <Leader>b :BufExplorerHorizontalSplit<CR>
 
 let g:ctrlp_map = ''
 let g:ctrlp_cmd = ''
