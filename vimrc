@@ -143,7 +143,6 @@ function! SwitchToTabs()
   set noexpandtab
   set cindent
 endfunction
-autocmd BufEnter *.js,*.c,*.cpp,*.h,*.hpp call SwitchToTabs()
 
 function! SwitchToSpaces()
   set shiftwidth=2
@@ -152,7 +151,6 @@ function! SwitchToSpaces()
   set expandtab
   set autoindent
 endfunction
-autocmd BufEnter *.rb,*.py,*.tex,*.m call SwitchToSpaces()
 
 call SwitchToSpaces()
 
