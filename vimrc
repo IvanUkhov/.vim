@@ -130,10 +130,9 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <Leader><Leader> <C-^>
 
-nmap <Leader>j :bn<CR>
-nmap <Leader>J :bn<CR>:bd #<CR>
-nmap <Leader>k :bp<CR>
-nmap <Leader>K :bp<CR>:bd #<CR>
+nmap <Leader>n :bn<CR>
+nmap <Leader>p :bp<CR>
+nmap <Leader>d :bd<CR>
 
 " Indentation
 function! SwitchToTabs()
