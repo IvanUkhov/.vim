@@ -67,13 +67,24 @@ set ignorecase smartcase
 nmap <Leader>si :set ignorecase! \| set ignorecase?<CR>
 
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  command! -nargs=+ -complete=file -bar
-    \ Ag silent! grep! '<args>'|cwindow|redraw!
-  nmap \ :Ag<SPACE>
+  set grepprg=ag
+    \\ --nogroup
+    \\ --nocolor
+else
+  set grepprg=grep
+    \\ --binary-files=without-match
+    \\ --color=never
+    \\ --line-number
+    \\ --recursive
+    \\ --with-filename
+    \\ $*\ ./
 endif
 
+command! -nargs=+ -complete=file -bar
+  \ Grep silent! grep! '<args>'|cwindow|redraw!
+
 nmap <Leader>g :grep! "\b<C-R><C-W>\b"<CR><CR>:cw<CR>
+nmap \ :Grep<SPACE>
 
 " Line wrapping
 set nowrap
