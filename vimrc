@@ -97,6 +97,8 @@ nmap <Leader>sw :set wrap! list! \| set wrap?<CR>
 set list
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 
+nmap <Leader>sl :set list! \| set list?<CR>
+
 function! StripTrailingWhitespace()
   let pattern = @/
   let line = line('.')
@@ -143,7 +145,7 @@ nnoremap <Leader><Leader> <C-^>
 
 nmap <Leader>n :bn<CR>
 nmap <Leader>p :bp<CR>
-nmap <Leader>d :bn<CR>:bd #<CR>
+nmap <Leader>d :bp<CR>:bd #<CR>
 
 " Indentation
 function! SwitchToTabs()
@@ -232,6 +234,7 @@ nmap <Leader>rf :CtrlPClearCache<CR>
 nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <C-s> :w<CR>
 nnoremap Q @@
+nmap K <Nop>
 
 "-------------------------------------------------------------------------------
 " Terminal
