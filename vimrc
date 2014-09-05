@@ -148,12 +148,13 @@ nmap <Leader>p :bp<CR>
 nmap <Leader>d :bp<CR>:bd #<CR>
 
 " Indentation
+set autoindent
+
 function! SwitchToTabs()
   set shiftwidth=4
   set softtabstop=0
   set tabstop=4
   set noexpandtab
-  set cindent
 endfunction
 
 function! SwitchToSpaces()
@@ -161,7 +162,6 @@ function! SwitchToSpaces()
   set softtabstop=2
   set tabstop=2
   set expandtab
-  set autoindent
 endfunction
 
 call SwitchToSpaces()
