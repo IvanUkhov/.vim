@@ -172,13 +172,6 @@ set nospell
 
 nmap <Leader>ss :set spell! \| set spell?<CR>
 
-function! CheckSpelling()
-  set spelllang=en_us
-  syntax spell toplevel
-  set spell
-endfunction
-autocmd BufEnter *.txt,*.md,*.html,*.tex call CheckSpelling()
-
 " Cursor position
 function! RestoreCursorPosition()
   if line("'\"") > 0 && line("'\"") <= line('$')
@@ -236,6 +229,19 @@ nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <C-s> :w<CR>
 nnoremap Q @@
 nmap K <Nop>
+
+" Writing
+function! AssistWriting()
+  set wrap
+  set nolist
+  set spell
+  set spelllang=en_us
+  syntax spell toplevel
+endfunction
+
+autocmd BufEnter *.txt,*.md,*.html,*.tex,*.bib call AssistWriting()
+
+nmap <Leader>a gq}``
 
 "-------------------------------------------------------------------------------
 " Terminal
