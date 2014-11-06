@@ -30,8 +30,8 @@ nnoremap <C-Left> <C-W>2<
 nnoremap <C-Right> <C-W>2>
 
 " Interface
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme base16-default
 
 function! SwitchColorscheme()
   let current = &background
@@ -42,7 +42,7 @@ function! SwitchColorscheme()
     set background=light
   endif
 
-  colorscheme solarized
+  colorscheme base16-default
 endfunction
 
 nmap <Leader>sc :call SwitchColorscheme()<CR>
