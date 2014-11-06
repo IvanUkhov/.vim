@@ -1,6 +1,6 @@
 # .vim
 
-A `.vim` directory of [Vim][1]. Best enjoyed responsibly.
+The home directory of [Vim][1]. Best enjoyed responsibly.
 
 ## Installation
 
