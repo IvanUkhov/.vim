@@ -1,7 +1,6 @@
 # .vim
 
-The `~/.vim` directory of [Vim](http://www.vim.org/).
-Best enjoyed responsibly.
+A `.vim` directory of [Vim][1]. Best enjoyed responsibly.
 
 ## Installation
 
@@ -10,3 +9,5 @@ $ rm -rf ~/.vim
 $ git clone https://github.com/IvanUkhov/.vim.git ~/.vim --recursive
 $ ln -sFi ~/.vim/vimrc ~/.vimrc
 ```
+
+[1]: http://www.vim.org/
