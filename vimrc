@@ -47,7 +47,7 @@ endfunction
 
 nmap <Leader>sc :call SwitchColorscheme()<CR>
 
-let &colorcolumn=81
+set colorcolumn=81,100
 
 " Status line
 set laststatus=2
@@ -184,6 +184,7 @@ autocmd BufReadPost * call RestoreCursorPosition()
 set cursorline
 
 " Editing
+set textwidth=80
 set nojoinspaces
 
 nmap <Leader>vi :e $MYVIMRC<CR>
@@ -271,7 +272,7 @@ function! ResizeWindow(...)
     let lines = &lines
   end
 
-  let columns = 80 + &numberwidth
+  let columns = 100 + &numberwidth
 
   if exists('t:NERDTreeBufName')
     if bufwinnr(t:NERDTreeBufName) != -1
