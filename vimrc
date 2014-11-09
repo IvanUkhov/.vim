@@ -183,10 +183,7 @@ autocmd BufReadPost * call RestoreCursorPosition()
 
 set cursorline
 
-" Editing
-set textwidth=80
-set nojoinspaces
-
+" File manipulation
 nmap <Leader>vi :e $MYVIMRC<CR>
 autocmd BufWritePost .vimrc source $MYVIMRC
 
@@ -212,6 +209,22 @@ function! RenameFile()
 endfunction
 map <Leader>mv :call RenameFile()<CR>
 
+" Writing
+set textwidth=80
+set nojoinspaces
+
+function! AssistWriting()
+  set wrap
+  set nolist
+  set spell
+  set spelllang=en_us
+  syntax spell toplevel
+endfunction
+
+autocmd BufEnter *.txt,*.md,*.html,*.tex,*.bib call AssistWriting()
+
+nmap <Leader>a gq}``
+
 " Plugins
 nmap <Leader>t :NERDTreeToggle<CR>
 
@@ -225,24 +238,11 @@ let g:ctrlp_working_path_mode = 'ra'
 nmap <Leader>f :CtrlP<CR>
 nmap <Leader>rf :CtrlPClearCache<CR>
 
-" Various
+" Miscellaneous
 nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <C-s> :w<CR>
 nnoremap Q @@
 nmap K <Nop>
-
-" Writing
-function! AssistWriting()
-  set wrap
-  set nolist
-  set spell
-  set spelllang=en_us
-  syntax spell toplevel
-endfunction
-
-autocmd BufEnter *.txt,*.md,*.html,*.tex,*.bib call AssistWriting()
-
-nmap <Leader>a gq}``
 
 "-------------------------------------------------------------------------------
 " Terminal
