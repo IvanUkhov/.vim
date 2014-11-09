@@ -10,10 +10,6 @@
 	path = bundle/indent-matchit
 	url = https://github.com/IvanUkhov/indent-matchit.git
 	ignore = untracked
-[submodule "bundle/solarized"]
-	path = bundle/solarized
-	url = https://github.com/altercation/vim-colors-solarized
-	ignore = untracked
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
