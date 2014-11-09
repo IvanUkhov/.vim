@@ -209,6 +209,10 @@ function! RenameFile()
 endfunction
 map <Leader>mv :call RenameFile()<CR>
 
+nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+
+nmap <C-s> :w<CR>
+
 " Writing
 set textwidth=80
 set nojoinspaces
@@ -239,8 +243,6 @@ nmap <Leader>f :CtrlP<CR>
 nmap <Leader>rf :CtrlPClearCache<CR>
 
 " Miscellaneous
-nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
-nmap <C-s> :w<CR>
 nnoremap Q @@
 nmap K <Nop>
 
