@@ -31,23 +31,23 @@ nnoremap <C-Right> <C-W>2>
 
 " Interface
 set background=light
-colorscheme solarized
+colorscheme tomorrow
 
 function! SwitchColorscheme()
   let current = &background
 
   if current == 'light'
     set background=dark
+    colorscheme tomorrow-night
   else
     set background=light
+    colorscheme tomorrow
   endif
-
-  colorscheme solarized
 endfunction
 
 nmap <Leader>sc :call SwitchColorscheme()<CR>
 
-set colorcolumn=81,100
+set colorcolumn=81,101
 
 " Status line
 set laststatus=2
