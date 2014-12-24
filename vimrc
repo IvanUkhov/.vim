@@ -31,17 +31,17 @@ nnoremap <C-Right> <C-W>2>
 
 " Interface
 set background=light
-colorscheme tomorrow
+colorscheme Tomorrow
 
 function! SwitchColorscheme()
   let current = &background
 
   if current == 'light'
     set background=dark
-    colorscheme tomorrow-night
+    colorscheme Tomorrow-Night
   else
     set background=light
-    colorscheme tomorrow
+    colorscheme Tomorrow
   endif
 endfunction
 
