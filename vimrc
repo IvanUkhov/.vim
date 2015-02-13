@@ -84,7 +84,7 @@ command! -nargs=+ -complete=file -bar
   \ Grep silent! grep! '<args>'|cwindow|redraw!
 
 nmap <Leader>g :grep! "\b<C-R><C-W>\b"<CR><CR>:cw<CR>
-nmap \ :Grep<SPACE>
+nmap \ :Grep<Space>
 
 " Line wrapping
 set nowrap
