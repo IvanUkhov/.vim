@@ -217,17 +217,40 @@ nmap <C-s> :w<CR>
 set textwidth=80
 set nojoinspaces
 
+nmap <Leader>a gq}``
+
+function! SelectUntil(pattern)
+  let stop = line('$')
+  execute 'normal V'
+  while 1
+    if line('.') == stop
+      break
+    endif
+    execute 'normal j'
+    if getline('.') =~ a:pattern
+      execute 'normal k'
+      break
+    endif
+  endwhile
+endfunction
+
+function! FormatUntil(pattern)
+  let x = line('.')
+  let y = col('.') - 1
+  call SelectUntil(a:pattern)
+  execute 'normal gq'
+  execute 'normal ' . x . 'G' . y . 'l'
+endfunction
+
 function! AssistWriting()
   set wrap
-  set nolist
   set spell
   set spelllang=en_us
   syntax spell toplevel
+  nmap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\\[\)')<CR>
 endfunction
 
-autocmd BufEnter *.txt,*.md,*.html,*.tex,*.bib call AssistWriting()
-
-nmap <Leader>a gq}``
+autocmd BufRead *.txt,*.md,*.html,*.tex,*.bib call AssistWriting()
 
 " Plugins
 nmap <Leader>t :NERDTreeToggle<CR>
