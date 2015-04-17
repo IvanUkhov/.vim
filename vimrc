@@ -247,7 +247,7 @@ function! AssistWriting()
   set spell
   set spelllang=en_us
   syntax spell toplevel
-  nmap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\\[\)')<CR>
+  nmap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)')<CR>
 endfunction
 
 autocmd BufRead *.txt,*.md,*.html,*.tex,*.bib call AssistWriting()
