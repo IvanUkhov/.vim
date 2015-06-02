@@ -31,17 +31,18 @@ nnoremap <C-Right> <C-W>2>
 
 " Interface
 set background=light
-colorscheme Tomorrow
+let g:solarized_termcolors=256
+colorscheme solarized
 
 function! SwitchColorscheme()
   let current = &background
 
   if current == 'light'
     set background=dark
-    colorscheme Tomorrow-Night
+    colorscheme solarized
   else
     set background=light
-    colorscheme Tomorrow
+    colorscheme solarized
   endif
 endfunction
 
