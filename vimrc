@@ -30,15 +30,20 @@ nnoremap <C-Left> <C-W>2<
 nnoremap <C-Right> <C-W>2>
 
 " Interface
+if !has('gui_running')
+  set term=xterm-256color
+  set t_Co=256
+  let base16colorspace=256
+endif
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme base16-tomorrow
 
 function! SwitchColorscheme()
   let current = &background
   if current == 'light'
-    colorscheme Tomorrow-Night
+    set background=dark
   else
-    colorscheme Tomorrow
+    set background=light
   endif
 endfunction
 
