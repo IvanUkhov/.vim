@@ -31,8 +31,6 @@ nnoremap <C-Right> <C-W>2>
 
 " Interface
 if !has('gui_running')
-  set term=xterm-256color
-  set t_Co=256
   let base16colorspace=256
 endif
 set background=dark
