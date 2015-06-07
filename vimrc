@@ -35,6 +35,7 @@ if !has('gui_running')
 endif
 set background=dark
 colorscheme base16-tomorrow
+highlight Search ctermbg=81 ctermfg=0
 
 function! SwitchColorscheme()
   let current = &background
@@ -64,6 +65,7 @@ set iskeyword=a-z,A-Z,48-57,_
 
 set ignorecase smartcase
 
+nmap <Leader>/ :silent nohlsearch<CR>
 nmap <Leader>si :set ignorecase! \| set ignorecase?<CR>
 
 if executable('ag')
