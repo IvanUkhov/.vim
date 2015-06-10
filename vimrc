@@ -46,7 +46,7 @@ function! SwitchColorscheme()
   endif
 endfunction
 
-nmap <Leader>sc :call SwitchColorscheme()<CR>
+nnoremap <Leader>sc :call SwitchColorscheme()<CR>
 
 set colorcolumn=81,101
 
@@ -65,8 +65,8 @@ set iskeyword=a-z,A-Z,48-57,_
 
 set ignorecase smartcase
 
-nmap <Leader>/ :silent nohlsearch<CR>
-nmap <Leader>si :set ignorecase! \| set ignorecase?<CR>
+nnoremap <Leader>/ :silent nohlsearch<CR>
+nnoremap <Leader>si :set ignorecase! \| set ignorecase?<CR>
 
 if executable('ag')
   set grepprg=ag
@@ -85,21 +85,21 @@ endif
 command! -nargs=+ -complete=file -bar
   \ Grep silent! grep! '<args>'|cwindow|redraw!
 
-nmap <Leader>g :grep! "\b<C-R><C-W>\b"<CR><CR>:cw<CR>
-nmap \ :Grep<Space>
+nnoremap <Leader>g :grep! "\b<C-R><C-W>\b"<CR><CR>:cw<CR>
+nnoremap \ :Grep<Space>
 
 " Line wrapping
 set nowrap
 set linebreak
 set showbreak=↪\ "
 
-nmap <Leader>sw :set wrap! list! \| set wrap?<CR>
+nnoremap <Leader>sw :set wrap! list! \| set wrap?<CR>
 
 " Invisible characters
 set list
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 
-nmap <Leader>sl :set list! \| set list?<CR>
+nnoremap <Leader>sl :set list! \| set list?<CR>
 
 function! StripTrailingWhitespace()
   let pattern = @/
@@ -112,7 +112,7 @@ function! StripTrailingWhitespace()
   call cursor(line, column)
 endfunction
 
-nmap <Leader>cl :call StripTrailingWhitespace()<CR>
+nnoremap <Leader>cl :call StripTrailingWhitespace()<CR>
 
 " Folding
 set foldmethod=indent
@@ -145,9 +145,9 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <Leader><Leader> <C-^>
 
-nmap <Leader>n :bn<CR>
-nmap <Leader>p :bp<CR>
-nmap <Leader>d :bp<CR>:bd #<CR>
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>d :bp<CR>:bd #<CR>
 
 " Indentation
 set autoindent
@@ -172,7 +172,7 @@ call SwitchToSpaces()
 " Spell checking
 set nospell
 
-nmap <Leader>ss :set spell! \| set spell?<CR>
+nnoremap <Leader>ss :set spell! \| set spell?<CR>
 
 " Cursor position
 function! RestoreCursorPosition()
@@ -186,7 +186,7 @@ autocmd BufReadPost * call RestoreCursorPosition()
 set cursorline
 
 " File manipulation
-nmap <Leader>vi :e $MYVIMRC<CR>
+nnoremap <Leader>vi :e $MYVIMRC<CR>
 autocmd BufWritePost .vimrc source $MYVIMRC
 
 function! SanitizePath(path)
@@ -201,11 +201,11 @@ function! GetDirectory()
   return SanitizePath(expand('%:p:h')) . '/'
 endfunction
 
-nmap ;; :e <C-R>=GetFile()<CR>
-cmap ;; <C-R>=GetFile()<CR>
+nnoremap ;; :e <C-R>=GetFile()<CR>
+cnoremap ;; <C-R>=GetFile()<CR>
 
-nmap ,, :e <C-R>=GetDirectory()<CR><Space><Backspace>
-cmap ,, <C-R>=GetDirectory()<CR><Space><Backspace>
+nnoremap ,, :e <C-R>=GetDirectory()<CR><Space><Backspace>
+cnoremap ,, <C-R>=GetDirectory()<CR><Space><Backspace>
 
 function! RenameFile()
   let old_name = expand('%')
@@ -216,17 +216,17 @@ function! RenameFile()
     redraw!
   endif
 endfunction
-map <Leader>mv :call RenameFile()<CR>
+noremap <Leader>mv :call RenameFile()<CR>
 
-nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
-nmap <C-s> :w<CR>
+nnoremap <C-s> :w<CR>
 
 " Writing
 set textwidth=80
 set nojoinspaces
 
-nmap <Leader>a gq}``
+nnoremap <Leader>a gq}``
 
 function! SelectUntil(pattern)
   let stop = line('$')
@@ -256,27 +256,27 @@ function! AssistWriting()
   set spell
   set spelllang=en_us
   syntax spell toplevel
-  nmap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)')<CR>
+  nnoremap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)')<CR>
 endfunction
 
 autocmd BufRead *.txt,*.md,*.html,*.tex,*.bib call AssistWriting()
 
 " Plugins
-nmap <Leader>t :NERDTreeToggle<CR>
+nnoremap <Leader>t :NERDTreeToggle<CR>
 
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerDisableDefaultKeyMapping = 1
-nmap <Leader>b :BufExplorerHorizontalSplit<CR>
+nnoremap <Leader>b :BufExplorerHorizontalSplit<CR>
 
 let g:ctrlp_map = ''
 let g:ctrlp_cmd = ''
 let g:ctrlp_working_path_mode = 'ra'
-nmap <Leader>f :CtrlP<CR>
-nmap <Leader>rf :CtrlPClearCache<CR>
+nnoremap <Leader>f :CtrlP<CR>
+nnoremap <Leader>rf :CtrlPClearCache<CR>
 
 " Miscellaneous
 nnoremap Q @@
-nmap K <Nop>
+nnoremap K <Nop>
 
 "-------------------------------------------------------------------------------
 " Terminal
@@ -316,7 +316,7 @@ function! ResizeWindow(...)
 
   execute 'set lines=' . lines . ' columns=' . columns
 endfunction
-nmap <Leader>rw :call ResizeWindow()<CR>
+nnoremap <Leader>rw :call ResizeWindow()<CR>
 
 function! RestoreSession()
   call ResizeWindow(100)
