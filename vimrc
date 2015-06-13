@@ -30,23 +30,31 @@ nnoremap <C-Left> <C-W>2<
 nnoremap <C-Right> <C-W>2>
 
 " Interface
-if !has('gui_running')
-  let base16colorspace=256
-endif
-set background=dark
-colorscheme base16-tomorrow
-highlight Search ctermbg=81 ctermfg=0
-
-function! SwitchColorscheme()
-  let current = &background
-  if current == 'light'
-    set background=dark
-  else
-    set background=light
+function! SwitchBackground(ambience)
+  let ambience = a:ambience
+  if ambience == ''
+    if g:ambience == 'light'
+      let ambience = 'dark'
+    else
+      let ambience = 'light'
+    endif
   endif
+  let &t_Co=256
+  if ambience == 'light'
+    set background=light
+    colorscheme hemisu
+  else
+    set background=dark
+    colorscheme hemisu
+    highlight ColorColumn ctermbg=8 ctermfg=0 guibg=#686868 guifg=#000000
+  endif
+  highlight Search ctermbg=81 ctermfg=0 guibg=#5fd8fb guifg=#000000
+  let g:ambience=ambience
 endfunction
 
-nnoremap <Leader>sc :call SwitchColorscheme()<CR>
+call SwitchBackground('dark')
+
+nnoremap <Leader>sc :call SwitchBackground('')<CR>
 
 set colorcolumn=81,101
 
