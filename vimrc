@@ -39,16 +39,17 @@ function! SwitchBackground(ambience)
       let ambience = 'light'
     endif
   endif
-  let &t_Co=256
+
   if ambience == 'light'
     set background=light
-    colorscheme hemisu
   else
     set background=dark
-    colorscheme hemisu
-    highlight ColorColumn ctermbg=8 ctermfg=0 guibg=#686868 guifg=#000000
   endif
+  let &t_Co=256
+  colorscheme jellybeans
+  highlight ColorColumn ctermbg=238 ctermfg=0 guibg=#444444 guifg=#000000
   highlight Search ctermbg=81 ctermfg=0 guibg=#5fd8fb guifg=#000000
+
   let g:ambience=ambience
 endfunction
 
