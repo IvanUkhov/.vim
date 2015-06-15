@@ -13,6 +13,6 @@
 [submodule "bundle/pathogen"]
 	path = bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "bundle/gruvbox"]
-	path = bundle/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
+[submodule "bundle/tomorrow-theme"]
+	path = bundle/tomorrow-theme
+	url = https://github.com/chriskempson/tomorrow-theme.git

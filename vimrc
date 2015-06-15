@@ -42,12 +42,10 @@ function! SwitchBackground(ambience)
 
   if ambience == 'light'
     set background=light
-    colorscheme gruvbox
-    highlight ColorColumn ctermbg=7 ctermfg=0 guibg=#c0c0c0 guifg=#000000
+    colorscheme Tomorrow
   else
     set background=dark
-    colorscheme gruvbox
-    highlight ColorColumn ctermbg=238 ctermfg=0 guibg=#444444 guifg=#000000
+    colorscheme Tomorrow-Night-Bright
   endif
   highlight Search ctermbg=81 ctermfg=0 guibg=#5fd8fb guifg=#000000
 
