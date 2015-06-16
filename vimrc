@@ -235,6 +235,7 @@ set textwidth=80
 set nojoinspaces
 
 nnoremap <Leader>a gq}``
+nnoremap <Leader>o mzvip:sort<CR>`z
 
 function! SelectUntil(pattern)
   let stop = line('$')
