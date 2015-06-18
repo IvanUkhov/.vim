@@ -42,11 +42,11 @@ function! SwitchBackground(ambience)
 
   if ambience == 'light'
     set background=light
-    colorscheme Tomorrow
   else
     set background=dark
-    colorscheme Tomorrow-Night-Bright
   endif
+  set t_Co=256
+  colorscheme zenburn
   highlight Search ctermbg=81 ctermfg=0 guibg=#5fd8fb guifg=#000000
 
   let g:ambience=ambience
