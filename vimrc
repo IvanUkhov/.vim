@@ -56,7 +56,7 @@ call SwitchBackground('dark')
 
 nnoremap <Leader>sc :call SwitchBackground('')<CR>
 
-set colorcolumn=81,101
+set colorcolumn=81,100
 
 " Status line
 set laststatus=2
