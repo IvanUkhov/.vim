@@ -48,6 +48,7 @@ function! SwitchBackground(ambience)
 
   set t_Co=256
   colorscheme zenburn
+  highlight SpellBad cterm=underline
   highlight Search ctermbg=81 ctermfg=0 guibg=#5fd8fb guifg=#000000
 
   let g:ambience = ambience
