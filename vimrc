@@ -33,26 +33,27 @@ nnoremap <C-Right> <C-W>2>
 function! SwitchBackground(ambience)
   let ambience = a:ambience
   if ambience == ''
-    if g:ambience == 'light'
-      let ambience = 'dark'
+    if g:ambience == 'this'
+      let ambience = 'that'
     else
-      let ambience = 'light'
+      let ambience = 'this'
     endif
   endif
 
-  if ambience == 'light'
-    set background=light
+  if ambience == 'this'
+    let g:zenburn_high_Contrast = 1
   else
-    set background=dark
+    let g:zenburn_high_Contrast = 0
   endif
+
   set t_Co=256
   colorscheme zenburn
   highlight Search ctermbg=81 ctermfg=0 guibg=#5fd8fb guifg=#000000
 
-  let g:ambience=ambience
+  let g:ambience = ambience
 endfunction
 
-call SwitchBackground('dark')
+call SwitchBackground('that')
 
 nnoremap <Leader>sc :call SwitchBackground('')<CR>
 
