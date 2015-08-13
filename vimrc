@@ -271,7 +271,7 @@ function! AssistWriting()
   nnoremap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)')<CR>
 endfunction
 
-autocmd BufRead *.txt,*.md,*.html,*.tex,*.bib call AssistWriting()
+autocmd BufRead *.txt,*.md,*.html,*.tex,*.bib,COMMIT_* call AssistWriting()
 
 " Plugins
 nnoremap <Leader>t :NERDTreeToggle<CR>
