@@ -3,20 +3,21 @@ call pathogen#infect()
 mapclear
 autocmd!
 
-"-------------------------------------------------------------------------------
-" Common
-"-------------------------------------------------------------------------------
-
 " Basic
 set nocompatible
-set encoding=utf-8
-set number
-set hidden
-set history=1000
+
 set backspace=indent,eol,start
 set cryptmethod=blowfish
-set visualbell
+set encoding=utf-8
+set hidden
+set history=1000
+set number
+
 set mouse=a
+set ttymouse=xterm2
+
+set t_vb=
+set visualbell
 
 syntax on
 filetype plugin indent on
@@ -30,7 +31,7 @@ nnoremap <C-Left> <C-W>2<
 nnoremap <C-Right> <C-W>2>
 
 " Interface
-function! SwitchBackground(ambience)
+function! SwitchColorscheme(ambience)
   let ambience = a:ambience
   if ambience == ''
     if g:ambience == 'this'
@@ -54,9 +55,9 @@ function! SwitchBackground(ambience)
   let g:ambience = ambience
 endfunction
 
-call SwitchBackground('that')
+call SwitchColorscheme('that')
 
-nnoremap <Leader>sc :call SwitchBackground('')<CR>
+nnoremap <Leader>sc :call SwitchColorscheme('')<CR>
 
 set colorcolumn=81,100
 
@@ -294,14 +295,6 @@ nnoremap <Leader>rf :CtrlPClearCache<CR>
 " Miscellaneous
 nnoremap Q @@
 nnoremap K <Nop>
-
-"-------------------------------------------------------------------------------
-" Terminal
-"-------------------------------------------------------------------------------
-
-" Input
-set ttymouse=xterm2
-set t_vb=
 
 "-------------------------------------------------------------------------------
 " GUI
