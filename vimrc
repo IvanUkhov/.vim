@@ -233,6 +233,11 @@ nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <C-s> :w<CR>
 
 " Writing
+inoremap <Tab> <Esc>`^
+vnoremap <Tab> <Esc>
+inoremap <Right> <Tab>
+inoremap <Left> <Backspace>
+
 set textwidth=80
 set nojoinspaces
 
