@@ -359,8 +359,4 @@ set guioptions-=m
 set guioptions+=b
 
 set linespace=4
-if has('mac')
-  set guifont=Monaco:h15
-else
-  set guifont=Monospace\ 11
-endif
+set guifont=Hack\ Regular:h15,Monaco:h15,Menlo:h15,Monospace\ 11
