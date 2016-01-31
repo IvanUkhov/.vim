@@ -7,10 +7,9 @@ autocmd!
 set nocompatible
 
 set backspace=indent,eol,start
-set cryptmethod=blowfish
 set encoding=utf-8
 set hidden
-set history=1000
+set history=10000
 set number
 
 set mouse=a
@@ -134,12 +133,19 @@ set nofoldenable
 " Tab completion
 set wildmode=list:longest
 set wildmenu
-set wildignore=*.swp,*.swo,*~,*.lock,*/.git/*,*/target/*
+
+set wildignore=*.swo,*.swp,*~
+set wildignore+=*/.git/*
+set wildignore+=*/target/debug/*
+set wildignore+=*/target/doc/*
+set wildignore+=*/target/package/*
+set wildignore+=*/target/release/*
 
 " Scrolling
+set sidescroll=1
+
 set scrolloff=1
 set sidescrolloff=1
-set sidescroll=1
 
 " Navigation
 set nostartofline
