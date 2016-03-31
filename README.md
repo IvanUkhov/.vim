@@ -1,6 +1,6 @@
 # .vim
 
-The home directory of [Vim][1]. Best enjoyed responsibly.
+A home directory of the [Vim][1] editor. Best enjoyed responsibly.
 
 ## Installation
 
@@ -10,4 +10,4 @@ git clone https://github.com/IvanUkhov/.vim.git ~/.vim --recursive
 ln -sFi ~/.vim/vimrc ~/.vimrc
 ```
 
-[1]: http://www.vim.org/
+[1]: http://www.vim.org
