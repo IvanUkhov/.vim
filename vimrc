@@ -113,7 +113,8 @@ function! SwitchToTabs()
   set tabstop=4
   set noexpandtab
 endfunction
-autocmd BufEnter *.c,*.cpp,*.h,*.hpp,*.java,*.json,*.go call SwitchToTabs()
+autocmd BufEnter *.c,*.cpp,*.go,*.h,*.hpp,*.java,*.json call SwitchToTabs()
+autocmd FileType make call SwitchToTabs()
 
 function! SwitchToSpaces()
   set shiftwidth=2
