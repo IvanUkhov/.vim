@@ -253,6 +253,8 @@ endfunction
 nnoremap <Leader>vi :e $MYVIMRC<CR>
 autocmd BufWritePost .vimrc source $MYVIMRC
 
+set backupskip=/tmp/*,/private/tmp/*
+
 function! SanitizePath(path)
   return substitute(a:path, ' ', '\\\ ', 'g')
 endfunction
