@@ -98,11 +98,9 @@ set wildmode=list:longest
 set wildmenu
 
 set wildignore=*.swo,*.swp,*~
+set wildignore+=*.lock
 set wildignore+=*/.git/*
-set wildignore+=*/target/debug/*
-set wildignore+=*/target/doc/*
-set wildignore+=*/target/package/*
-set wildignore+=*/target/release/*
+set wildignore+=*/target/*
 
 " Indentation
 set autoindent
