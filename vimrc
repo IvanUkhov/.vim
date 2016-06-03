@@ -211,6 +211,8 @@ function! AssistWriting()
   syntax spell toplevel
 
   setlocal wrap
+
+  nnoremap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)')<CR>
 endfunction
 autocmd BufRead *.bib,*.html,*.md,*.tex,*.txt,COMMIT_* call AssistWriting()
 
@@ -221,7 +223,6 @@ function! FormatUntil(pattern)
   execute 'normal gq'
   execute 'normal ' . x . 'G' . y . 'l'
 endfunction
-nnoremap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)')<CR>
 
 function! SelectUntil(pattern)
   let stop = line('$')
