@@ -105,6 +105,13 @@ set wildignore+=*/target/*
 " Indentation
 set autoindent
 
+function! SwitchToSpaces()
+  set shiftwidth=2
+  set softtabstop=2
+  set tabstop=2
+  set expandtab
+endfunction
+
 function! SwitchToTabs()
   set shiftwidth=4
   set softtabstop=0
@@ -113,13 +120,6 @@ function! SwitchToTabs()
 endfunction
 autocmd BufEnter *.c,*.cpp,*.go,*.h,*.hpp,*.js,*.json call SwitchToTabs()
 autocmd FileType make call SwitchToTabs()
-
-function! SwitchToSpaces()
-  set shiftwidth=2
-  set softtabstop=2
-  set tabstop=2
-  set expandtab
-endfunction
 
 call SwitchToSpaces()
 
@@ -156,9 +156,7 @@ function! StripTrailingWhitespace()
   let pattern = @/
   let line = line('.')
   let column = col('.')
-
   silent! %s/\s\+$//
-
   let @/ = pattern
   call cursor(line, column)
 endfunction
@@ -203,26 +201,27 @@ set nospell
 nnoremap <Leader>ss :set spell! \| set spell?<CR>
 
 function! AssistWriting()
-  set wrap
-  set spell
-  set spelllang=en_us
+  setlocal noautoindent
+  setlocal nocindent
+  setlocal nosmartindent
+  setlocal indentexpr=
+
+  setlocal spell
+  setlocal spelllang=en_us
   syntax spell toplevel
-  nnoremap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)')<CR>
+
+  setlocal wrap
 endfunction
+autocmd BufRead *.bib,*.html,*.md,*.tex,*.txt,COMMIT_* call AssistWriting()
 
-autocmd BufRead *.txt,*.md,*.html,*.tex,*.bib,COMMIT_* call AssistWriting()
-
-inoremap <Tab> <Esc>`^
-vnoremap <Tab> <Esc>
-inoremap <Right> <Tab>
-inoremap <Left> <Backspace>
-
-set textwidth=80
-set nojoinspaces
-
-nnoremap <Leader>a gq}``
-nnoremap <Leader>o mzvip:sort<CR>`z
-vnoremap <Leader>o mz:sort<CR>`z
+function! FormatUntil(pattern)
+  let x = line('.')
+  let y = col('.') - 1
+  call SelectUntil(a:pattern)
+  execute 'normal gq'
+  execute 'normal ' . x . 'G' . y . 'l'
+endfunction
+nnoremap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)')<CR>
 
 function! SelectUntil(pattern)
   let stop = line('$')
@@ -239,13 +238,17 @@ function! SelectUntil(pattern)
   endwhile
 endfunction
 
-function! FormatUntil(pattern)
-  let x = line('.')
-  let y = col('.') - 1
-  call SelectUntil(a:pattern)
-  execute 'normal gq'
-  execute 'normal ' . x . 'G' . y . 'l'
-endfunction
+inoremap <Tab> <Esc>`^
+vnoremap <Tab> <Esc>
+inoremap <Right> <Tab>
+inoremap <Left> <Backspace>
+
+set textwidth=80
+set nojoinspaces
+
+nnoremap <Leader>a gq}``
+nnoremap <Leader>o mzvip:sort<CR>`z
+vnoremap <Leader>o mz:sort<CR>`z
 
 " File manipulation
 nnoremap <Leader>vi :e $MYVIMRC<CR>
