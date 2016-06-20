@@ -201,10 +201,10 @@ set nospell
 nnoremap <Leader>ss :set spell! \| set spell?<CR>
 
 function! AssistWriting()
+  setlocal indentexpr=
   setlocal noautoindent
   setlocal nocindent
   setlocal nosmartindent
-  setlocal indentexpr=
 
   setlocal spell
   setlocal spelllang=en_us
@@ -326,24 +326,19 @@ function! ResizeWindow(...)
   else
     let lines = &lines
   end
-
   let columns = 100 + &numberwidth
-
   if exists('t:NERDTreeBufName')
     if bufwinnr(t:NERDTreeBufName) != -1
       let columns = columns + g:NERDTreeWinSize + 1
     endif
   endif
-
   execute 'set lines=' . lines . ' columns=' . columns
 endfunction
 nnoremap <Leader>rw :call ResizeWindow()<CR>
 
 function! RestoreSession()
   call ResizeWindow(100)
-
   let file = $HOME . '/.gvimsession'
-
   if filereadable(file)
     let data = split(readfile(file)[0])
     silent! execute 'winpos ' . data[0] . ' ' . data[1]
@@ -351,6 +346,7 @@ function! RestoreSession()
     winpos 0 0
   endif
 endfunction
+autocmd VimEnter * call RestoreSession()
 
 function! SaveSession()
   let file = $HOME . '/.gvimsession'
@@ -359,8 +355,6 @@ function! SaveSession()
     \ (getwinposy() < 0 ? 0 : getwinposy()) ]
   call writefile(data, file)
 endfunction
-
-autocmd VimEnter * call RestoreSession()
 autocmd VimLeavePre * call SaveSession()
 
 " Interface
