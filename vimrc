@@ -239,10 +239,8 @@ function! SelectUntil(pattern)
   endwhile
 endfunction
 
-inoremap <Tab> <Esc>`^
-vnoremap <Tab> <Esc>
-inoremap <Right> <Tab>
-inoremap <Left> <Backspace>
+inoremap <Right> <Esc>`^>>i
+inoremap <Left> <Esc>`^<<i
 
 set textwidth=80
 set nojoinspaces
@@ -304,8 +302,8 @@ nnoremap <Leader>f :CtrlP<CR>
 nnoremap <Leader>rf :CtrlPClearCache<CR>
 
 " Miscellaneous
-nnoremap Q @@
 nnoremap K <Nop>
+nnoremap Q @@
 
 "-------------------------------------------------------------------------------
 " GUI
