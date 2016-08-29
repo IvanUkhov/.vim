@@ -104,24 +104,9 @@ set wildignore+=*/target/*
 
 " Indentation
 set autoindent
-
-function! SwitchToSpaces()
-  set shiftwidth=2
-  set softtabstop=2
-  set tabstop=2
-  set expandtab
-endfunction
-
-function! SwitchToTabs()
-  set shiftwidth=4
-  set softtabstop=0
-  set tabstop=4
-  set noexpandtab
-endfunction
-autocmd BufEnter *.c,*.cpp,*.go,*.h,*.hpp,*.js,*.json call SwitchToTabs()
-autocmd FileType make call SwitchToTabs()
-
-call SwitchToSpaces()
+set shiftwidth=4
+set softtabstop=0
+set tabstop=4
 
 " Folding
 set foldmethod=indent
