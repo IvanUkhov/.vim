@@ -104,6 +104,7 @@ set wildignore+=*/target/*
 
 " Indentation
 set autoindent
+set expandtab
 set shiftwidth=4
 set softtabstop=0
 set tabstop=4
