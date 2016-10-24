@@ -104,10 +104,24 @@ set wildignore+=*/target/*
 
 " Indentation
 set autoindent
-set expandtab
-set shiftwidth=4
-set softtabstop=0
-set tabstop=4
+
+function! SwitchToSpaces(size)
+  let &l:shiftwidth = a:size
+  let &l:softtabstop = a:size
+  let &l:tabstop = a:size
+  setlocal expandtab
+endfunction
+
+function! SwitchToTabs(size)
+  let &l:shiftwidth = a:size
+  let &l:softtabstop = 0
+  let &l:tabstop = a:size
+  setlocal noexpandtab
+endfunction
+
+autocmd FileType python,rust call SwitchToSpaces(4)
+autocmd FileType go,make call SwitchToTabs(4)
+autocmd FileType sh call SwitchToSpaces(2)
 
 " Folding
 set foldmethod=indent
