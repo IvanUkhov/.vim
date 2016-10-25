@@ -1,4 +1,4 @@
-ROOT = $(HOME)/.vim
+root := "${HOME}/.vim"
 
 all:
-	@ln -Fis $(ROOT)/vimrc $(HOME)/.vimrc
+	@ln -Fis "${root}/vimrc" "${HOME}/.vimrc"
