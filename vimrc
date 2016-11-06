@@ -119,9 +119,9 @@ function! SwitchToTabs(size)
   setlocal noexpandtab
 endfunction
 
+autocmd FileType sh,tex call SwitchToSpaces(2)
 autocmd FileType python,rust call SwitchToSpaces(4)
 autocmd FileType go,make call SwitchToTabs(4)
-autocmd FileType sh call SwitchToSpaces(2)
 
 " Folding
 set foldmethod=indent
