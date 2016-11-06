@@ -253,6 +253,8 @@ vnoremap <Leader>o mz:sort<CR>`z
 nnoremap <Leader>vi :e $MYVIMRC<CR>
 autocmd BufWritePost .vimrc source $MYVIMRC
 
+autocmd FileType crontab setlocal nobackup nowritebackup
+
 function! SanitizePath(path)
   return substitute(a:path, ' ', '\\\ ', 'g')
 endfunction
