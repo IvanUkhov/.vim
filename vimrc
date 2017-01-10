@@ -119,7 +119,7 @@ function! SwitchToTabs(size)
   setlocal noexpandtab
 endfunction
 
-autocmd FileType sh,tex call SwitchToSpaces(2)
+autocmd FileType html,sh,tex call SwitchToSpaces(2)
 autocmd FileType python,rust,toml call SwitchToSpaces(4)
 autocmd FileType go,make call SwitchToTabs(4)
 
