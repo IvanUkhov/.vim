@@ -214,7 +214,7 @@ function! AssistWriting()
 
   nnoremap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)')<CR>
 endfunction
-autocmd BufRead *.bib,*.html,*.md,*.tex,*.txt,COMMIT_* call AssistWriting()
+autocmd FileType bib,gitcommit,html,markdown,plaintex,tex call AssistWriting()
 
 function! FormatUntil(pattern)
   let x = line('.')
