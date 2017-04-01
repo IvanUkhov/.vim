@@ -361,4 +361,4 @@ set guioptions-=m
 set guioptions+=b
 
 set linespace=4
-set guifont=Hack\ Regular:h15,Monaco:h15,Menlo:h15,Monospace\ 11
+set guifont=InputMonoNarrow:h15,Monaco:h15,Menlo:h15,Monospace\ 11
