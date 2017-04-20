@@ -119,7 +119,7 @@ function! SwitchToTabs(size)
   setlocal noexpandtab
 endfunction
 
-autocmd FileType html,java,javascript,plaintex,sh,tex,yaml,xml call SwitchToSpaces(2)
+autocmd FileType html,java,javascript,plaintex,sh,tex,text,yaml,xml call SwitchToSpaces(2)
 autocmd FileType python,rust,toml call SwitchToSpaces(4)
 autocmd FileType go,make call SwitchToTabs(4)
 
@@ -214,7 +214,7 @@ function! AssistWriting()
 
   nnoremap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)')<CR>
 endfunction
-autocmd FileType bib,gitcommit,html,markdown,plaintex,tex call AssistWriting()
+autocmd FileType bib,gitcommit,html,markdown,plaintex,tex,text call AssistWriting()
 
 function! FormatUntil(pattern)
   let x = line('.')
