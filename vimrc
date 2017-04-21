@@ -202,7 +202,6 @@ nnoremap <Leader>ss :set spell! \| set spell?<CR>
 
 function! AssistWriting()
   setlocal indentexpr=
-  setlocal noautoindent
   setlocal nocindent
   setlocal nosmartindent
 
@@ -218,10 +217,10 @@ autocmd FileType bib,gitcommit,html,markdown,plaintex,tex,text call AssistWritin
 
 function! FormatUntil(pattern)
   let x = line('.')
-  let y = col('.') - 1
+  let y = col('.')
   call SelectUntil(a:pattern)
   execute 'normal gq'
-  execute 'normal ' . x . 'G' . y . 'l'
+  execute 'normal ' . x . 'G' . y . '|'
 endfunction
 
 function! SelectUntil(pattern)
