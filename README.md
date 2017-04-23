@@ -1,6 +1,7 @@
 # .vim
 
-A home directory of the [Vim][1] editor. Best enjoyed responsibly.
+The repository contains a home directory of the [Vim][1] editor. Best enjoyed
+responsibly.
 
 ## Installation
 
