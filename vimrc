@@ -98,6 +98,7 @@ set wildmode=list:longest
 set wildmenu
 
 set wildignore=*.swo,*.swp,*~
+set wildignore+=*.aux
 set wildignore+=*.lock
 set wildignore+=*/.git/*
 set wildignore+=*/target/*
