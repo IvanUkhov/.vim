@@ -287,8 +287,6 @@ nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <C-s> :w<CR>
 
 " Plugins
-nnoremap <Leader>t :NERDTreeToggle<CR>
-
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerDisableDefaultKeyMapping = 1
 nnoremap <Leader>b :BufExplorerHorizontalSplit<CR>
@@ -298,6 +296,10 @@ let g:ctrlp_cmd = ''
 let g:ctrlp_working_path_mode = 'ra'
 nnoremap <Leader>f :CtrlP<CR>
 nnoremap <Leader>rf :CtrlPClearCache<CR>
+
+let g:go_template_autocreate = 0
+
+nnoremap <Leader>t :NERDTreeToggle<CR>
 
 " Miscellaneous
 nnoremap K <Nop>
