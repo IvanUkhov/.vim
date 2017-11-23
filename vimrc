@@ -1,5 +1,3 @@
-call pathogen#infect()
-
 mapclear
 autocmd!
 
