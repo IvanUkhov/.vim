@@ -99,6 +99,7 @@ set wildignore=*.swo,*.swp,*~
 set wildignore+=*.aux
 set wildignore+=*.lock
 set wildignore+=*/.git/*
+set wildignore+=*/build/*
 set wildignore+=*/target/*
 
 " Indentation
