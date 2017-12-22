@@ -128,6 +128,7 @@ set foldnestmax=3
 set nofoldenable
 
 " Cursor position
+set cursorcolumn
 set cursorline
 
 function! RestoreCursorPosition()
