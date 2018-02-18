@@ -259,19 +259,11 @@ function! SanitizePath(path)
   return substitute(a:path, ' ', '\\\ ', 'g')
 endfunction
 
-function! GetFile()
-  return SanitizePath(expand('%'))
-endfunction
-
 function! GetDirectory()
   return SanitizePath(expand('%:p:h')) . '/'
 endfunction
 
-nnoremap ;; :e <C-R>=GetFile()<CR>
-cnoremap ;; <C-R>=GetFile()<CR>
-
-nnoremap ,, :e <C-R>=GetDirectory()<CR><Space><Backspace>
-cnoremap ,, <C-R>=GetDirectory()<CR><Space><Backspace>
+nnoremap <Leader>e :e <C-R>=GetDirectory()<CR><Space><Backspace>
 
 function! MoveFile()
   let old_name = expand('%')
