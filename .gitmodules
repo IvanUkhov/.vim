@@ -4,9 +4,6 @@
 [submodule "ctrlp"]
 	path = pack/plugins/start/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim
-[submodule "go"]
-	path = pack/plugins/start/go
-	url = https://github.com/fatih/vim-go
 [submodule "nerdtree"]
 	path = pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
