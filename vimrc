@@ -140,6 +140,9 @@ function! RestoreCursorPosition()
 endfunction
 autocmd BufReadPost * call RestoreCursorPosition()
 
+autocmd BufLeave * let b:winview = winsaveview()
+autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+
 " Line wrapping
 set nowrap
 nnoremap <Leader>sw :set wrap! list! \| set wrap?<CR>
