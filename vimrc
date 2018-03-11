@@ -220,9 +220,14 @@ function! AssistWriting()
 
   setlocal wrap
 
-  nnoremap <Leader>a :call FormatUntil('\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)')<CR>
+  nnoremap <Leader>a :call
+    \ FormatUntil(
+    \   '\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)'
+    \ )<CR>
 endfunction
-autocmd FileType bib,gitcommit,html,markdown,plaintex,tex,text call AssistWriting()
+autocmd FileType
+  \ bib,gitcommit,html,markdown,plaintex,tex,text
+  \ call AssistWriting()
 
 function! FormatUntil(pattern)
   let x = line('.')
