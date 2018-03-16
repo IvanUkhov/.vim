@@ -305,8 +305,6 @@ let g:ctrlp_working_path_mode = 'ra'
 nnoremap <Leader>f :CtrlP<CR>
 nnoremap <Leader>rf :CtrlPClearCache<CR>
 
-let g:go_template_autocreate = 0
-
 nnoremap <Leader>t :NERDTreeToggle<CR>
 
 " Miscellaneous
