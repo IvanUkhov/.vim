@@ -119,8 +119,9 @@ function! SwitchToTabs(size)
   setlocal noexpandtab
 endfunction
 
-call SwitchToSpaces(2)
-
+autocmd FileType
+  \ *
+  \ call SwitchToSpaces(2)
 autocmd FileType
   \ python,rust,toml
   \ call SwitchToSpaces(4)
