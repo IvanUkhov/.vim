@@ -208,6 +208,7 @@ call SwitchColorscheme('that')
 
 " Writing
 set nospell
+set spelllang=en_us
 nnoremap <Leader>ss :set spell! \| set spell?<CR>
 
 function! AssistWriting()
@@ -216,7 +217,6 @@ function! AssistWriting()
   setlocal nosmartindent
 
   setlocal spell
-  setlocal spelllang=en_us
   syntax spell toplevel
 
   setlocal wrap
