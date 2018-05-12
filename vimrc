@@ -223,11 +223,11 @@ function! AssistWriting()
 
   nnoremap <Leader>a :call
     \ FormatUntil(
-    \   '\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)'
+    \   '\(^\s*$\)\\|\(^\s*\\begin\)\\|\(^\s*\\end\)\\|\(^\s*\\\[\)\\|\(\$\$\)'
     \ )<CR>
 endfunction
 autocmd FileType
-  \ bib,gitcommit,html,markdown,plaintex,tex,text
+  \ bib,gitcommit,html,markdown,plaintex,rmd,tex,text
   \ call AssistWriting()
 
 function! FormatUntil(pattern)
