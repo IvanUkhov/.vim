@@ -1,2 +1,2 @@
 all:
-	@ln -Fis "${PWD}/vimrc" "${HOME}/.vimrc"
+	@ln -Fis "${CURDIR}/vimrc" "${HOME}/.vimrc"
