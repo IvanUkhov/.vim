@@ -342,7 +342,7 @@ nnoremap <Leader>rw :call ResizeWindow()<CR>
 
 function! RestoreSession()
   call ResizeWindow(100)
-  let file = $HOME . '/.gvimsession'
+  let file = $HOME . '/.vimsession'
   if filereadable(file)
     let data = split(readfile(file)[0])
     silent! execute 'winpos ' . data[0] . ' ' . data[1]
@@ -353,7 +353,7 @@ endfunction
 autocmd VimEnter * call RestoreSession()
 
 function! SaveSession()
-  let file = $HOME . '/.gvimsession'
+  let file = $HOME . '/.vimsession'
   let data = [
     \ (getwinposx() < 0 ? 0 : getwinposx()) . ' ' .
     \ (getwinposy() < 0 ? 0 : getwinposy()) ]
