@@ -195,7 +195,7 @@ function! SwitchColorscheme(ambience)
     let g:zenburn_high_Contrast = 0
   endif
 
-  set t_Co=256
+  set t_ut=
   colorscheme zenburn
   highlight SpellBad cterm=underline
   highlight Search ctermbg=81 ctermfg=0 guibg=#5fd8fb guifg=#000000
