@@ -10,3 +10,6 @@
 [submodule "zenburn"]
 	path = pack/plugins/start/zenburn
 	url = https://github.com/jnurmine/Zenburn.git
+[submodule "pack/plugins/start/stan"]
+	path = pack/plugins/start/stan
+	url = https://github.com/eigenfoo/stan-vim
