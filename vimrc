@@ -178,32 +178,10 @@ filetype plugin indent on
 set colorcolumn=81,100
 set number
 
-function! SwitchColorscheme(ambience)
-  let ambience = a:ambience
-  if ambience == ''
-    if g:ambience == 'this'
-      let ambience = 'that'
-    else
-      let ambience = 'this'
-    endif
-  endif
-
-  if ambience == 'this'
-    let g:zenburn_high_Contrast = 1
-  else
-    let g:zenburn_high_Contrast = 0
-  endif
-
-  set t_ut=
-  colorscheme zenburn
-  highlight SpellBad cterm=underline
-  highlight Search ctermbg=81 ctermfg=0 guibg=#5fd8fb guifg=#000000
-
-  let g:ambience = ambience
-endfunction
-nnoremap <Leader>sc :call SwitchColorscheme('')<CR>
-
-call SwitchColorscheme('that')
+set t_ut=
+colorscheme zenburn
+highlight SpellBad cterm=underline
+highlight Search ctermbg=81 ctermfg=0 guibg=#5fd8fb guifg=#000000
 
 " Writing
 set nospell
