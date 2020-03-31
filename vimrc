@@ -40,9 +40,8 @@ nnoremap <Leader>p :bp<CR>
 nnoremap <Leader>d :bp<CR>:bd #<CR>
 
 " Scrolling
-set sidescroll=1
-
 set scrolloff=1
+set sidescroll=1
 set sidescrolloff=1
 
 " Window
