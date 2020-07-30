@@ -281,6 +281,8 @@ nnoremap <Leader>rf :CtrlPClearCache<CR>
 
 nnoremap <Leader>t :NERDTreeToggle<CR>
 
+let g:pandoc#syntax#conceal#use = 0
+
 " Miscellaneous
 nnoremap K <Nop>
 nnoremap Q @@
