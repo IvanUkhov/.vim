@@ -230,9 +230,6 @@ function! SelectUntil(pattern)
   endwhile
 endfunction
 
-inoremap <Right> <Esc>`^>>i
-inoremap <Left> <Esc>`^<<i
-
 set textwidth=80
 set nojoinspaces
 
