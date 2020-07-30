@@ -10,9 +10,6 @@
 [submodule "pack/plugins/start/pandoc"]
 	path = pack/plugins/start/pandoc
 	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
-[submodule "pack/plugins/start/stan"]
-	path = pack/plugins/start/stan
-	url = https://github.com/eigenfoo/stan-vim
 [submodule "pack/plugins/start/zenburn"]
 	path = pack/plugins/start/zenburn
 	url = https://github.com/jnurmine/Zenburn.git
