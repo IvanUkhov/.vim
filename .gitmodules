@@ -1,15 +1,18 @@
-[submodule "bufexplorer"]
+[submodule "pack/plugins/start/bufexplorer"]
 	path = pack/plugins/start/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
-[submodule "ctrlp"]
+[submodule "pack/plugins/start/ctrlp"]
 	path = pack/plugins/start/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim
-[submodule "nerdtree"]
+[submodule "pack/plugins/start/nerdtree"]
 	path = pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "zenburn"]
-	path = pack/plugins/start/zenburn
-	url = https://github.com/jnurmine/Zenburn.git
+[submodule "pack/plugins/start/pandoc"]
+	path = pack/plugins/start/pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
 [submodule "pack/plugins/start/stan"]
 	path = pack/plugins/start/stan
 	url = https://github.com/eigenfoo/stan-vim
+[submodule "pack/plugins/start/zenburn"]
+	path = pack/plugins/start/zenburn
+	url = https://github.com/jnurmine/Zenburn.git
