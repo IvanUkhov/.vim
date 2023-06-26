@@ -7,9 +7,9 @@
 [submodule "pack/plugins/start/nerdtree"]
 	path = pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "pack/plugins/start/pandoc"]
-	path = pack/plugins/start/pandoc
-	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
 [submodule "pack/plugins/start/zenburn"]
 	path = pack/plugins/start/zenburn
 	url = https://github.com/jnurmine/Zenburn.git
+[submodule "pack/plugins/start/terraform"]
+	path = pack/plugins/start/terraform
+	url = https://github.com/hashivim/vim-terraform.git
