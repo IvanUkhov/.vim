@@ -12,7 +12,9 @@ set history=10000
 set backspace=indent,eol,start
 
 set mouse=a
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 set t_vb=
 set visualbell
@@ -152,6 +154,7 @@ autocmd BufEnter * if exists('b:view') | call winrestview(b:view) | endif
 set nowrap
 nnoremap <Leader>sw :set wrap! list! \| set wrap?<CR>
 
+set display=lastline
 set linebreak
 set showbreak=↪\ "
 
@@ -294,6 +297,10 @@ nnoremap Q @@
 if !has('gui_running')
   finish
 end
+
+if has('nvim')
+  finish
+endif
 
 " Input
 set imdisable
