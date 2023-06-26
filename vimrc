@@ -1,11 +1,11 @@
-set langmenu=en_US
-let $LANG = 'en_US'
-
 mapclear
 autocmd!
 
 " Basic
 set nocompatible
+
+set langmenu=en_US
+let $LANG = 'en_US'
 
 set encoding=utf-8
 set hidden
