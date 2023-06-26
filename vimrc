@@ -298,6 +298,10 @@ if !has('gui_running')
   finish
 end
 
+" Text
+set linespace=4
+set guifont=Input\ Mono\ Narrow:h15,Monaco:h15,Menlo:h15,Monospace\ 11
+
 if has('nvim')
   finish
 endif
@@ -348,6 +352,3 @@ autocmd VimLeavePre * call SaveSession()
 set guioptions-=T
 set guioptions-=m
 set guioptions+=b
-
-set linespace=4
-set guifont=InputMonoNarrow:h15,Monaco:h15,Menlo:h15,Monospace\ 11
