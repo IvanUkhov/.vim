@@ -190,6 +190,9 @@ highlight SpellBad cterm=underline
 highlight Search ctermbg=81 ctermfg=0 guibg=#5fd8fb guifg=#000000
 
 " Writing
+set autoread<
+autocmd FocusGained * checktime
+
 set nospell
 set spelllang=en_us
 nnoremap <Leader>ss :set spell! \| set spell?<CR>
@@ -286,8 +289,6 @@ nnoremap <Leader>f :CtrlP<CR>
 nnoremap <Leader>rf :CtrlPClearCache<CR>
 
 nnoremap <Leader>t :NERDTreeToggle<CR>
-
-let g:pandoc#syntax#conceal#use = 0
 
 " Miscellaneous
 nnoremap K <Nop>
