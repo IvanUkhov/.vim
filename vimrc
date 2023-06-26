@@ -300,7 +300,7 @@ end
 
 " Text
 set linespace=4
-set guifont=Input\ Mono\ Narrow:h15,Monaco:h15,Menlo:h15,Monospace\ 11
+set guifont=Input\ Mono\ Narrow:h15,Monaco:h15,Menlo:h15
 
 if has('nvim')
   finish
