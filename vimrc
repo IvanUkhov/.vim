@@ -240,6 +240,7 @@ function! SelectUntil(pattern)
 endfunction
 
 set textwidth=80
+set nofixendofline
 set nojoinspaces
 
 nnoremap <Leader>a gq}``
