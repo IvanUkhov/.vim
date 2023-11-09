@@ -3,6 +3,7 @@ autocmd!
 
 " Basic
 set nocompatible
+set noswapfile
 
 set langmenu=en_US
 let $LANG = 'en_US'
@@ -99,12 +100,9 @@ nnoremap \ :Grep<Space>
 set wildmode=list:longest
 set wildmenu
 
-set wildignore=*.swo,*.swp,*~
-set wildignore+=*.aux
-set wildignore+=*.lock
+set wildignore=*~
+set wildignore+=.*
 set wildignore+=*/.git/*
-set wildignore+=*/build/*
-set wildignore+=*/target/*
 
 " Indentation
 set autoindent
