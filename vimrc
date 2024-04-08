@@ -75,6 +75,7 @@ nnoremap <Leader>si :set ignorecase! \| set ignorecase?<CR>
 set smartcase
 
 nnoremap <Leader>/ :silent nohlsearch<CR>
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 if executable('ag')
   set grepprg=ag
