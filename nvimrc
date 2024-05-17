@@ -5,5 +5,8 @@ source ~/.vimrc
 
 set noswapfile
 
-let g:neovide_scroll_animation_length = 0
-let g:neovide_scroll_animation_far_lines = 0
+if exists('g:neovide')
+  let g:neovide_scroll_animation_length = 0
+  let g:neovide_scroll_animation_far_lines = 0
+  autocmd VimEnter * call timer_start(20, {tid -> execute('NeovideFocus')})
+endif
