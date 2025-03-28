@@ -282,7 +282,7 @@ nnoremap <C-s> :w<CR>
 " Plugins
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerDisableDefaultKeyMapping = 1
-nnoremap <Leader>b :BufExplorerHorizontalSplit<CR>
+nnoremap <Leader>b :BufExplorer<CR>
 
 let g:ctrlp_map = ''
 let g:ctrlp_cmd = ''
