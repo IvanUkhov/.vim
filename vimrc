@@ -180,7 +180,7 @@ nnoremap <Leader>cl :call StripTrailingWhitespace()<CR>
 syntax on
 filetype plugin indent on
 
-set synmaxcol=100
+set synmaxcol=200
 set colorcolumn=81,101
 
 set number
