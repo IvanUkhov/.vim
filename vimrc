@@ -292,6 +292,9 @@ nnoremap <Leader>rf :CtrlPClearCache<CR>
 
 nnoremap <Leader>t :NERDTreeToggle<CR>
 
+imap <C-Tab> <Plug>(copilot-accept-line)
+imap <S-Tab> <Plug>(copilot-accept-word)
+
 " Miscellaneous
 nnoremap K <Nop>
 nnoremap Q @@
