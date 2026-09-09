@@ -287,6 +287,7 @@ nnoremap <Leader>b :BufExplorer<CR>
 let g:ctrlp_map = ''
 let g:ctrlp_cmd = ''
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -co --exclude-standard']
 nnoremap <Leader>f :CtrlP<CR>
 nnoremap <Leader>rf :CtrlPClearCache<CR>
 
